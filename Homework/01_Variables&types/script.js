@@ -30,11 +30,11 @@ console.log(
 );
 
 // Виведіть булеве значення: чи є сума всіх товарів (округлена в меншу сторону) парним чи непарним числом?
-let pricesPairing =
+let pricesParityCheck =
     pricesSumEntireFloor % 2 == 0
-        ? console.log('The pairing of the sum of all prices is: true')
-        : console.log('The pairing of the sum of all prices is: false');
-
+        ? 'The parity of the sum of all prices is: true'
+        : 'The parity of the sum of all prices is: false';
+console.log(pricesParityCheck);
 // Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн.
 let userMoneyAmount = 500;
 let change = Math.abs(pricesSum - userMoneyAmount);
@@ -53,8 +53,9 @@ console.log(`Discount = ${userDiscountPercent}%`);
 // Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми.
 let userDiscountAmount = ((pricesSum * userDiscountPercent) / 100).toFixed(2);
 let pricesSumDiscounted = (pricesSum - userDiscountAmount).toFixed(2);
-console.log(`Discount amount =  ${userDiscountAmount}`);
-console.log(`Discounted sum  = ${pricesSumDiscounted}`);
+console.log(
+    `Discount amount =  ${userDiscountAmount} \nDiscounted sum  = ${pricesSumDiscounted}`
+);
 
 // Виведіть чистий прибуток, якщо клієнт заплатив зі знижкою та собівартість товарів рівно в два рази нижче їх ціни?
 
@@ -62,3 +63,16 @@ let netProfit = (pricesSumDiscounted / 2 - userDiscountAmount).toFixed(2);
 
 console.log(`Net profit = ${netProfit}`);
 
+document.querySelector('.price-operations--block').innerHTML = `<ul>
+  <li>Max price = ${priceMax}</li>
+  <li>Min price =  ${priceMin}</li>
+  <li>Sum of prices =  ${pricesSum}</li>
+  <li>Rounded up to hundreds sum  of rounded down prices = ${pricesSumEntireFloorRoundedToHundreds}</li>
+  <li>${pricesParityCheck}</li>
+  <li>Change for the client = ${change}</li>
+  <li>Average cost = ${averageCost}</li>
+  <li>Discount = ${userDiscountPercent}%</li>
+  <li>Discount amount =  ${userDiscountAmount}</li>
+  <li>Discounted sum  = ${pricesSumDiscounted}</li>
+  <li>Net profit = ${netProfit}</li>
+</ul>`;
