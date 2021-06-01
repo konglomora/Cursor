@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    backdrop-filter: blur(10px);
+    background-color: #000;
+    color: white;
+    background-image: url('https://media1.tenor.com/images/747bb0487de327d153b55a03086b4b04/tenor.gif?itemid=21189741');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 25%;
+}
+
+.price-operations--block {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    gap: 15px;
+    width: auto;
+    font-size: 14px;
+    margin: 200px 20px auto;
+    padding-right: 40px;
+    .counter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        width: 10em;
+        height: 10em;
+        background-color: rgb(86, 53, 207);
+        border-radius: 50%;
+        padding: 50px;
+        transition: 1s all;
+        margin: 0 auto;
+        &__title {
+            font-family: Limelight;
+            font-size: 1.3em;
+            width: 100%;
+        }
+        &__number {
+            font-family: Limelight;
+            font-weight: 800;
+            font-size: 2em;
+            color: rgb(212, 167, 44);
+        }
+        &__boolean {
+            font-family: Roboto;
+            font-weight: 800;
+            font-size: 3.5em;
+            text-transform: uppercase;
+            color: rgb(86, 53, 207);
+        }
+        &:nth-child(5) {
+            border: 20px solid white;
+            padding: 30px;
+            &:hover,
+            &:focus {
+                cursor: pointer;
+
+                background-color: rgb(0, 0, 0);
+
+                border: 20px solid rgb(86, 53, 207);
+                .counter__title {
+                }
+                .counter__boolean {
+                    color: rgb(212, 167, 44);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .price-operations--block {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .price-operations--block {
+        grid-template-columns: 1fr 1fr;
+        padding: 0px;
+    }
+}
+@media screen and (max-width: 780px) {
+    .price-operations--block {
+        grid-template-columns: 1fr;
+        padding: 0px;
+    }
+}
