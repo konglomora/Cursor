@@ -20,7 +20,7 @@ let pricesSumEntireFloor =
     Math.floor(nikePrice) +
     Math.floor(adidasPrice) +
     Math.floor(new_balancePrice);
-console.log(pricesSumEntireFloor);
+console.log(`Sum of prices without kopecks ${pricesSumEntireFloor}`);
 
 // TODO Виведіть суму товарів округлену до сотень. (Наприклад якщо вийшло 260, то виведіть 300)
 let pricesSumEntireFloorRoundedToHundreds =
@@ -61,6 +61,8 @@ let netProfit = (pricesSumDiscounted / 2 - userDiscountAmount).toFixed(2);
 
 console.log(`Net profit = ${netProfit}`);
 
+
+
 // ? Visualization
 document.querySelector('.price-operations--block').innerHTML = `
     
@@ -80,6 +82,11 @@ document.querySelector('.price-operations--block').innerHTML = `
     </div>
 
     <div class="counter">
+        <div class = "counter__title" >Sum of prices without kopecks, UAH </div>
+        <div class = "counter__number">${pricesSumEntireFloor}</div>
+    </div>
+
+    <div class="counter">
         <div class = "counter__title" >Rounded sum of prices, UAH</div>
         <div class = "counter__number" >${pricesSumEntireFloorRoundedToHundreds}</div>
     </div>
@@ -89,10 +96,7 @@ document.querySelector('.price-operations--block').innerHTML = `
         <div class = "counter__boolean">${pricesParityCheck}</div>
     </div>
 
-    <div class="counter">
-        <div class = "counter__title" >Customer money amount, UAH</div>
-        <div class = "counter__number">${userMoneyAmount}</div>
-    </div>
+    
 
     <div class="counter">
         <div class = "counter__title">Change for the client from 500 UAH</div>
@@ -143,3 +147,6 @@ $('.counter__number').each(function () {
             }
         );
 });
+
+
+

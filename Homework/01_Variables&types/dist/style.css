@@ -51,16 +51,16 @@ body {
   text-transform: uppercase;
   color: #5635cf;
 }
-.price-operations--block .counter:nth-child(5) {
+.price-operations--block .counter:nth-child(6) {
   border: 20px solid white;
   padding: 30px;
 }
-.price-operations--block .counter:nth-child(5):hover, .price-operations--block .counter:nth-child(5):focus {
+.price-operations--block .counter:nth-child(6):hover, .price-operations--block .counter:nth-child(6):focus {
   cursor: pointer;
   background-color: black;
   border: 20px solid #5635cf;
 }
-.price-operations--block .counter:nth-child(5):hover .counter__boolean, .price-operations--block .counter:nth-child(5):focus .counter__boolean {
+.price-operations--block .counter:nth-child(6):hover .counter__boolean, .price-operations--block .counter:nth-child(6):focus .counter__boolean {
   color: #d4a72c;
 }
 
