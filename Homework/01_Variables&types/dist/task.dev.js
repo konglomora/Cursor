@@ -1,7 +1,5 @@
 "use strict";
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 // Створіть 3 змінних з наступими значеннями: 15.678, 123.965, 90.2345.
 var nikePrice = 15.678;
 var adidasPrice = 123.965;
@@ -30,8 +28,7 @@ var averageCost = (pricesSum / 3).toFixed(2);
 console.log("Average cost = ".concat(averageCost)); // Створіть змінну, в якої збережіть випадкову знижку.
 
 var userDiscountPercent = +(Math.random() * (100 - 1) + 1).toFixed(2);
-console.log("Discount = ".concat(userDiscountPercent, "% "));
-console.log(_typeof(userDiscountPercent)); // Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми.
+console.log("Discount = ".concat(userDiscountPercent, "% ")); // Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми.
 
 var userDiscountAmount = (pricesSum * userDiscountPercent / 100).toFixed(2);
 var pricesSumDiscounted = (pricesSum - userDiscountAmount).toFixed(2);

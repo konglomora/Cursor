@@ -47,7 +47,6 @@ console.log(`Average cost = ${averageCost}`);
 // Створіть змінну, в якої збережіть випадкову знижку.
 let userDiscountPercent = +((Math.random() * (100 - 1) + 1).toFixed(2));
 console.log(`Discount = ${userDiscountPercent}% `);
-console.log(typeof userDiscountPercent);
 
 // Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми.
 let userDiscountAmount = ((pricesSum * userDiscountPercent) / 100).toFixed(2);
