@@ -1,7 +1,7 @@
 // ? Створіть 3 змінних з наступими значеннями: 15.678, 123.965, 90.2345.
-let nikePrice = 15.678;
-let adidasPrice = 123.965;
-let new_balancePrice = 90.2345;
+const nikePrice = 15.678;
+const adidasPrice = 123.965;
+const new_balancePrice = 90.2345;
 
 let priceMax = Math.max(nikePrice, adidasPrice, new_balancePrice);
 let priceMin = Math.min(nikePrice, adidasPrice, new_balancePrice);
@@ -31,7 +31,7 @@ console.log(
 );
 
 // TODO Виведіть булеве значення: чи є сума всіх товарів (округлена в меншу сторону) парним чи непарним числом?
-let pricesParityCheck = pricesSumEntireFloor % 2 == 0 ? 'true' : 'false';
+let pricesParityCheck = Math.floor(pricesSum) % 2 == 0 ? 'true' : 'false';
 console.log(`The parity of the sum of all prices is: ${pricesParityCheck}`);
 
 // TODO Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн.
