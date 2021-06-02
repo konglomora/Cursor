@@ -3,9 +3,9 @@ const nikePrice = 15.678;
 const adidasPrice = 123.965;
 const new_balancePrice = 90.2345;
 
-let priceMax = Math.max(nikePrice, adidasPrice, new_balancePrice);
-let priceMin = Math.min(nikePrice, adidasPrice, new_balancePrice);
-let pricesSum = nikePrice + adidasPrice + new_balancePrice;
+const priceMax = Math.max(nikePrice, adidasPrice, new_balancePrice);
+const priceMin = Math.min(nikePrice, adidasPrice, new_balancePrice);
+const pricesSum = nikePrice + adidasPrice + new_balancePrice;
 
 // TODO Використовуючи вбудований об'єкт Math – виведіть максимальне число
 // TODO Використовуючи вбудований об'єкт Math – виведіть мінімальне число
@@ -16,14 +16,14 @@ console.log(
 );
 
 // TODO Відкиньте копійки у всіх товарів, потім – складіть цілу частину вартості кожного товару між собою. Округлення використовувати в МЕНЬШУ сторону.
-let pricesSumEntireFloor =
+const pricesSumEntireFloor =
     Math.floor(nikePrice) +
     Math.floor(adidasPrice) +
     Math.floor(new_balancePrice);
 console.log(`Sum of prices without kopecks ${pricesSumEntireFloor}`);
 
 // TODO Виведіть суму товарів округлену до сотень. (Наприклад якщо вийшло 260, то виведіть 300)
-let pricesSumEntireFloorRoundedToHundreds =
+const pricesSumEntireFloorRoundedToHundreds =
     Math.round(pricesSumEntireFloor / 100) * 100;
 
 console.log(
@@ -31,37 +31,35 @@ console.log(
 );
 
 // TODO Виведіть булеве значення: чи є сума всіх товарів (округлена в меншу сторону) парним чи непарним числом?
-let pricesParityCheck = Math.floor(pricesSum) % 2 == 0 ? 'true' : 'false';
+const pricesParityCheck = Math.floor(pricesSum) % 2 == 0 ? 'true' : 'false';
 console.log(`The parity of the sum of all prices is: ${pricesParityCheck}`);
 
 // TODO Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн.
-let userMoneyAmount = 500;
-let change = Math.abs(pricesSum - userMoneyAmount);
+const userMoneyAmount = 500;
+const change = Math.abs(pricesSum - userMoneyAmount);
 
 console.log(`Change for the client = ${change}`);
 
 // TODO Виведіть середнє значення цін, округлене до другого знаку після коми.
-let averageCost = (pricesSum / 3).toFixed(2);
+const averageCost = +(pricesSum / 3).toFixed(2);
 
 console.log(`Average cost = ${averageCost}`);
 
 // TODO Створіть змінну, в якої збережіть випадкову знижку.
-let userDiscountPercent = +((Math.random() * (100 - 1) + 1).toFixed(2));
+const userDiscountPercent = +(Math.random() * (100 - 1) + 1).toFixed(2);
 console.log(`Discount = ${userDiscountPercent}% `);
 
 // TODO Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми.
-let userDiscountAmount = ((pricesSum * userDiscountPercent) / 100).toFixed(2);
-let pricesSumDiscounted = (pricesSum - userDiscountAmount).toFixed(2);
+const userDiscountAmount = +((pricesSum * userDiscountPercent) / 100).toFixed(2);
+const pricesSumDiscounted = +(pricesSum - userDiscountAmount).toFixed(2);
 console.log(
     `Discount amount =  ${userDiscountAmount} \nDiscounted sum  = ${pricesSumDiscounted}`
 );
 
 // TODO Виведіть чистий прибуток, якщо клієнт заплатив зі знижкою та собівартість товарів рівно в два рази нижче їх ціни?
-let netProfit = (pricesSumDiscounted / 2 - userDiscountAmount).toFixed(2);
+const netProfit = +(pricesSumDiscounted / 2 - userDiscountAmount).toFixed(2);
 
 console.log(`Net profit = ${netProfit}`);
-
-
 
 // ? Visualization
 document.querySelector('.price-operations--block').innerHTML = `
@@ -133,7 +131,7 @@ document.querySelector('.price-operations--block').innerHTML = `
 // ? Counters animation
 $('.counter__number').each(function () {
     $(this)
-        .prop('Counter', 0.00)
+        .prop('Counter', 0.0)
         .animate(
             {
                 Counter: $(this).text(),
@@ -142,11 +140,8 @@ $('.counter__number').each(function () {
                 duration: 3000, // ms
                 easing: 'swing',
                 step: function (now) {
-                    $(this).text((now.toFixed(2)));
+                    $(this).text(+now.toFixed(2));
                 },
             }
         );
 });
-
-
-
