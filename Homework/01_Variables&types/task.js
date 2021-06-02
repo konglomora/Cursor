@@ -31,7 +31,7 @@ console.log(
 );
 
 // TODO Виведіть булеве значення: чи є сума всіх товарів (округлена в меншу сторону) парним чи непарним числом?
-const pricesParityCheck = Math.floor(pricesSum) % 2 == 0 ? 'true' : 'false';
+const pricesParityCheck = Math.floor(pricesSum) % 2 == 0;
 console.log(`The parity of the sum of all prices is: ${pricesParityCheck}`);
 
 // TODO Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн.
@@ -50,7 +50,9 @@ const userDiscountPercent = +(Math.random() * (100 - 1) + 1).toFixed(2);
 console.log(`Discount = ${userDiscountPercent}% `);
 
 // TODO Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми.
-const userDiscountAmount = +((pricesSum * userDiscountPercent) / 100).toFixed(2);
+const userDiscountAmount = +((pricesSum * userDiscountPercent) / 100).toFixed(
+    2
+);
 const pricesSumDiscounted = +(pricesSum - userDiscountAmount).toFixed(2);
 console.log(
     `Discount amount =  ${userDiscountAmount} \nDiscounted sum  = ${pricesSumDiscounted}`
@@ -93,8 +95,6 @@ document.querySelector('.price-operations--block').innerHTML = `
         <div class = "counter__title">The parity of the sum of all prices is</div>
         <div class = "counter__boolean">${pricesParityCheck}</div>
     </div>
-
-    
 
     <div class="counter">
         <div class = "counter__title">Change for the client from 500 UAH</div>
