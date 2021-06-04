@@ -1,29 +1,27 @@
-let N = +prompt('input FIRST number', '');
-console.log(`Type of N = ${typeof N} & N = ${N}`);
+let N = +prompt('Enter first integer number', 0); // Запрашиваем первое число
 
-while (isNaN(Math.trunc(N)) && !N) {
-    N = +prompt('It`s not a number, please try again', '');
+
+while (isNaN(Math.trunc(N)) || !(Number.isInteger(N)) || !N) {
+    // Валидируем
+    N = +prompt('It`s not a integer number, please try again', 0); // Запрашиваем первое число пока валидация не пройдена
 }
 
-let M = +prompt('input SECOND number', '');
-console.log(`Type of M = ${typeof M} & M = ${M}`);
+let M = +prompt('Enter second integer number', 0); // Запрашиваем второе число
 
-while (isNaN(Math.trunc(M)) && !M) {
-    M = +prompt('It`s not a number, pslease try again', '');
+while (isNaN(Math.trunc(M)) || !M || !Number.isInteger(M)) {// Валидируем
+    M = +prompt('It`s not a integer number, pslease try again', 0); // Запрашиваем второе число пока валидация не пройдена
 }
 
-const skipParity = confirm('Skip parity at adding?');
-
-let sumOfnumbers = 0;
-let minNumber = Math.min(N, M);
-let maxNumber = Math.max(N, M);
+const skipParity = confirm('Skip paired numbers when adding?'); // Запрашиваем пропускать парные или нет?
+let sumOfnumbers = 0; 
+let minNumber = Math.min(N, M); // Определяем минимальное знаечение из N и M
+let maxNumber = Math.max(N, M); // Определяем максимальное знаечение из N и M
 
 for (minNumber; minNumber <= maxNumber; minNumber++) {
-    if (skipParity && minNumber % 2 == 0) {
+    if (skipParity && minNumber % 2 == 0) { // Проверяем пропускать парные или нет
         continue;
     }
-    sumOfnumbers += minNumber;
-    console.log(sumOfnumbers);
+    sumOfnumbers += minNumber; // Складываем сумму всех чисел в промежутке 
 }
 
-alert(`Summ of numbers is ${sumOfnumbers}`);
+alert(`Sum of numbers is ${sumOfnumbers}`);
