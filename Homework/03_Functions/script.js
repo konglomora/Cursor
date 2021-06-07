@@ -3,7 +3,7 @@
 // ?  та виводить найбільшу цифру в цьому числі. Приклади: 1236 -> 6, 987 -> 9, 385 -> 8
 
 function getMaxDigit(number) {
-    let n = number; // Вводим локальную переменную для того что бы не изменять глобальную
+    let n = number > 0 ? number : number * -1; // Приводим локальную переменную в положительное число, если оно негативное
     let maxDigit = 0; // Присваиваем максимальной цифре значение 0;
     while (n) {
         if (n % 10 > maxDigit) {
@@ -15,6 +15,8 @@ function getMaxDigit(number) {
     return console.log(`Max digit at ${number} = ${maxDigit}`);
 }
 
-getMaxDigit();
+getMaxDigit(987);
 
+// * Task 2
+// ? 
 
