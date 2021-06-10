@@ -1,4 +1,5 @@
 function isNotaNumber(n) {
+    // Валидатор чисел
     return isNaN(+n) || String(n).trim() === '';
 }
 
@@ -9,12 +10,15 @@ function isNotaNumber(n) {
 function getMaxDigit(number) {
     if (isNotaNumber(number)) return 'You entered not a number';
 
-    number = String(number);
+    number = String(number); // Переводим число в строку, что б оперировать её методами
     let digits = [];
 
-    for (let i = 0; i < number.length; i++)
-        if (/[\d]/.test(number[i])) digits.push(+number[i]);
-    return Math.max(...digits);
+    for (let i = 0; i < number.length; i++) // Пока итератор меньше длинны строки
+        if (/[\d]/.test(number[i])) {  // Если символ с индексом которому равен итератор это еденичное число 
+            digits.push(number[i]); // Пушим его в массив
+        }
+    const maxDigit = Math.max(...digits); // Получаем максимальное число из созданного массива благодаря spread
+    return maxDigit;
 }
 
 // * Task 2
@@ -25,9 +29,9 @@ function getNumPower(x, n) {
 
     let result = 1;
     for (i = 0; i < n; i++) {
-        result = result * x;
+        result = result * x; // Пока итератор меньше степени n, умножаем число само на себя
     }
-    return console.log(`${x} to the power of ${n} = ${result}`);
+    return result;
 }
 
 // * Task 3
@@ -35,7 +39,8 @@ function getNumPower(x, n) {
 
 function capitalizeFirstletter(s) {
     s = String(s);
-    return console.log(s.charAt(0).toUpperCase() + s.slice(1).toLowerCase());
+    const result = s.charAt(0).toUpperCase() + s.slice(1).toLowerCase(); // Знак с нулевым индексом переводим в upper case и к нему добавляем остальную строку с символа с индексом 1,  которую перевели в lower case
+    return result;
 }
 
 // * Task 4
@@ -43,7 +48,6 @@ function capitalizeFirstletter(s) {
 
 function getAmountAfterTax(salarySum) {
     if (isNotaNumber(salarySum)) return 'You entered not a number';
-
     const taxPercent = 19.5;
     const taxSum = salarySum * (taxPercent / 100);
     const amountAfterTax = salarySum - taxSum;
@@ -55,9 +59,12 @@ function getAmountAfterTax(salarySum) {
 // ** Приклад: getRandomNumber(1, 10) -> 5
 
 function getRandomNumber(a, b) {
-    maxNumber = Math.max(a, b);
-    minNumber = Math.min(a, b);
-    return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+    if (isNotaNumber(a) || isNotaNumber(b)) return 'You entered not a number';
+    const maxNumber = Math.max(a, b);
+    const minNumber = Math.min(a, b);
+    const result =
+        Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+    return result;
 }
 
 // * Task 6
@@ -68,12 +75,10 @@ function countLetter(letter, str) {
     let count = 0;
     const strArray = str.split('');
     strArray.forEach((element) => {
-        element.toLowerCase() == letter.toLowerCase() ? count++ : count;
+        element.toLowerCase() == letter.toLowerCase() ? count++ : count; // Для каждого элемента в строке, если он равен букве которую мы получили от юзера, счетчик увеличивается
     });
     return count;
 }
-
-// console.log(countLetter('v', 'oaaoa vvvv'));
 
 // * Task 8
 // ? Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
@@ -81,18 +86,17 @@ function countLetter(letter, str) {
 
 function getRandomPassword(passwordLength) {
     if (passwordLength == 0 || isNotaNumber(passwordLength))
+        // Валидируем параметр
         return 'Use integers to generate password';
 
     let password = [];
     for (let i = 0; i < passwordLength; i++) {
         let randomDigit = Math.trunc(Math.random() * 10);
-        password.push(randomDigit);
+        password.push(randomDigit); // Пушим в массив рандомное число пока итератор меньше параметра, который получили от юзера
     }
-    password = +password.join('');
+    password = password.join(''); // Собираем массив значений в строку
     return password;
 }
-
-// console.log(getRandomPassword(10));
 
 // * Task 9
 // ? Створіть функцію, яка видаляє всі букви з речення.
@@ -101,7 +105,7 @@ function getRandomPassword(passwordLength) {
 function deleteLetters(letter, str) {
     if (letter.length !== 1) return 'Enter 1 character, please'; // Валидируем полученную строку
 
-    const filtredStr = [...str] // Используем spread для сощдания массива из строки, которую получаем
+    const filtredStr = [...str] // Используем деструктуризацию для создания массива из строки, которую получаем
         .filter(function (element) {
             // Фильтруем массив по значениям, которые не равны введённой букве
             return element.toLowerCase() !== letter.toLowerCase();
@@ -109,7 +113,6 @@ function deleteLetters(letter, str) {
         .join(''); // Объеденяем полученный массив в строку
     return filtredStr;
 }
-// console.log(deleteLetters('1', '11111111111SSSasdSSqwassssasdasdeassasdasdsdssszxfasdasdasd  asdasdas ADSADWQE ASSSS'));
 
 // * Task 10
 // ? Створіть функцію, яка перевіряє, чи є слово паліндромом.
@@ -127,9 +130,6 @@ function isPalyndrom(str) {
     return true;
 }
 
-// console.log(isPalyndrom('Я несу гусеня'));
-// console.log(isPalyndrom('Я несу'));
-
 // * Task 11
 // ? Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу.
 // ** Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"
@@ -144,23 +144,41 @@ function deleteDuplicateLetter(str) {
     return uniqueLettersString;
 }
 
-// console.log(deleteDuplicateLetter('Бісквіт був дуже ніжним'));
-
-document.writeln(`Функция №1 getMaxDigit(-781.9): ${getMaxDigit(-781.9)}
-`);
-
 document.querySelector('.functions--block').innerHTML = `
-<span class="functions__item">Функція №1 getMaxDigit(123.9): ${getMaxDigit(
-    123.9
+
+<span class="functions__item">Функція №1 getMaxDigit(-128123.9): ${getMaxDigit(
+    '-128123.9'
 )}</span>
-<span class="functions__item">Функція №2: ${myFunc()}</span>
-<span class="functions__item">Функція №4: ${myFunc()}</span>
-<span class="functions__item">Функція №5: ${myFunc()}</span>
-<span class="functions__item">Функція №6: ${myFunc()}</span>
-<span class="functions__item">Функція №8: ${myFunc()}</span>
-<span class="functions__item">Функція №9: ${myFunc()}</span>
-<span class="functions__item">Функція №10: ${myFunc()}</span>
-<span class="functions__item">Функція №11: ${myFunc()}</span>
-<span class="functions__item">Функція №3: ${myFunc()}</span>
+<span class="functions__item">Функція №2 getNumPower(2, 10): ${getNumPower(
+    2,
+    10
+)}</span>
+<span class="functions__item">Функція №3 capitalizeFirstletter(WhAt iS lovE?): ${capitalizeFirstletter(
+    'WhAt iS lovE?'
+)}</span>
+<span class="functions__item">Функція №4 getAmountAfterTax(10000): ${getAmountAfterTax(
+    10000
+)}</span>
+<span class="functions__item">Функція №5 getRandomNumber(2, 20): ${getRandomNumber(
+    2,
+    20
+)}</span>
+<span class="functions__item">Функція №6 countLetter('a', 'Astalavista'): ${countLetter(
+    'a',
+    'Astalavista'
+)}</span>
+<span class="functions__item">Функція №8 getRandomPassword(15): ${getRandomPassword(
+    15
+)}</span>
+<span class="functions__item">Функція №9 deleteLetters('s', 'Solar chrest'): ${deleteLetters(
+    's',
+    'Solar chrest'
+)}</span>
+<span class="functions__item">Функція №10 isPalyndrom('Я несу гусеня'): ${isPalyndrom(
+    'Я несу гусеня'
+)}</span>
+<span class="functions__item">Функція №11 deleteDuplicateLetter('Praise the sun'): ${deleteDuplicateLetter(
+    'Praise the sun'
+)}</span>
 
 `;
