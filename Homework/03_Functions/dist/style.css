@@ -3,12 +3,44 @@ body {
   color: white;
 }
 
-.functions--block {
+.functions__wrapper {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
-.functions--block .functions__item {
+
+span {
   font-family: sans-serif;
-  font-size: 34px;
-  margin-top: 50px;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: orange;
+  border: 3px dashed white;
+  border-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.function__block {
+  border: 3px dashed white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #5d3db6;
+  width: 45%;
+  transition: all 1s linear;
+}
+
+.result {
+  width: 80%;
+  word-wrap: break-word;
 }
