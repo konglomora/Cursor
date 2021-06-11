@@ -240,9 +240,9 @@ function runEighthTask() {
     const n = document.querySelector('.function8__input').value;
     document.querySelector(
         '.function8__result'
-    ).innerHTML = `<span class="result">Результат: ${getRandomPassword(
+    ).innerHTML = `<div class="result">Результат: ${getRandomPassword(
         n
-    )}</span>`;
+    )}</div>`;
 }
 
 document.querySelector('.function8__submit').onclick = runEighthTask;
