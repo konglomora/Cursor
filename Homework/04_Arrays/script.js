@@ -6,6 +6,10 @@ const themes = [
 ];
 const marks = [4, 5, 5, 3, 4, 5];
 
+// * Task 1
+// ? Розділіть студентів на пари(хлопець + дівчина) для работи над проєктом.
+// **  У вас повинен вийти вкладений масив з парами студентів: [["Олександр", "Олена"], [..], [...]];
+
 function getPairs(students) {
     const studentsPairs = [
         [students[0], students[2]],
@@ -14,21 +18,33 @@ function getPairs(students) {
     ];
     return studentsPairs;
 }
-console.log('Function 1 result');
+
+console.log('\nFunction 1 result');
 console.log(getPairs(students));
+
+// * Task 2
+// ? Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати. 
+// **  Повинен вийти вкладений масив виду: [["Олександр і Олена", "Теорія автоматів"], [...], [...]]
+
 
 function getPairThemes(themes) {
     const pairs = getPairs(students);
     const pairsWithThemes = [
-        pairs[0].concat(themes[1]),
-        pairs[1].concat(themes[0]),
-        pairs[2].concat(themes[2]),
+        [pairs[0].join(' i '), themes[1]],
+        [pairs[1].join(' i '), themes[0]],
+        [pairs[2].join(' i ') ,themes[2]],
     ];
     return pairsWithThemes;
 }
-console.log('Function 2 result');
 
+console.log('\nFunction 2 result');
 console.log(getPairThemes(themes));
+
+// * Task 3
+// ? Зіставте оцінки(marks) зі студентом(students)
+// **  [["Саша", 4], [...], [...]]
+
+
 
 function getStudentmarks(students, marks) {
     let studentsMarks = [];
@@ -37,32 +53,24 @@ function getStudentmarks(students, marks) {
     }
     return studentsMarks;
 }
-console.log('Function 3 result');
 
+console.log('\nFunction 3 result');
 console.log(getStudentmarks(students, marks));
 
+// * Task 4
+// ? Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт(тут функція буде нечистою, але не повинна мутувати массив):
+// ** [["Олександр і Олена", "Теорія автоматів", 5], [...], [...]]
+
 function getRandomMark() {
-    let pairThemes = getPairThemes(themes);
+    const pairThemes = getPairThemes(themes);
     let result = [];
     for (let i = 0; i < pairThemes.length; i++) {
-        let randomMark = Math.trunc(Math.random() * (5 - 1 + 1) + 4); // Генерируем рандомное число
-        let partOfpairThemesMarked = [pairThemes[i].concat(randomMark)]; // Конкатенируем каждый элемент массива с парами людей и рандомное число, сохраняем в виде массива в новой переменной
+        const randomMark = Math.trunc(Math.random() * (5 - 1 + 1) + 4); // Генерируем рандомное число
+        const partOfpairThemesMarked = [pairThemes[i].concat(randomMark)]; // Конкатенируем каждый элемент массива с парами людей и рандомное число, сохраняем в виде массива в новой переменной
         result = result.concat(partOfpairThemesMarked); // Конкатенируем пустой массив, и каждый элемент из массива partOfpairThemesMarked
     }
     return result;
 }
-console.log('Function 4 result');
 
+console.log('\nFunction 4 result');
 console.log(getRandomMark());
-
-
-// let functionsList = [
-//     [getPairs(students)],
-//     [getPairThemes(themes)],
-//     [getStudentmarks(students, marks)],
-//     [getRandomMark()],
-// ];
-
-
-// document.querySelectorAll('.array').forEach((n, i) => n.textContent = functionsList[i]);
-
