@@ -20,12 +20,11 @@ function getPairs(students) {
 }
 
 console.log('\nFunction 1 result');
-console.log(getPairs(students));
+console.table(getPairs(students));
 
 // * Task 2
 // ? Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати. 
 // **  Повинен вийти вкладений масив виду: [["Олександр і Олена", "Теорія автоматів"], [...], [...]]
-
 
 function getPairThemes(themes) {
     const pairs = getPairs(students);
@@ -38,7 +37,7 @@ function getPairThemes(themes) {
 }
 
 console.log('\nFunction 2 result');
-console.log(getPairThemes(themes));
+console.table(getPairThemes(themes));
 
 // * Task 3
 // ? Зіставте оцінки(marks) зі студентом(students)
@@ -55,7 +54,7 @@ function getStudentmarks(students, marks) {
 }
 
 console.log('\nFunction 3 result');
-console.log(getStudentmarks(students, marks));
+console.table(getStudentmarks(students, marks));
 
 // * Task 4
 // ? Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт(тут функція буде нечистою, але не повинна мутувати массив):
@@ -73,4 +72,4 @@ function getRandomMark() {
 }
 
 console.log('\nFunction 4 result');
-console.log(getRandomMark());
+console.table(getRandomMark());
