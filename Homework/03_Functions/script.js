@@ -13,11 +13,7 @@ function getMaxDigit(number) {
     number = String(number); // Переводим число в строку, что б оперировать её методами
     let digits = [];
 
-    for (
-        let i = 0;
-        i < number.length;
-        i++ // Пока итератор меньше длинны строки
-    )
+    for (let i = 0; i < number.length; i++)
         if (/[\d]/.test(number[i])) {
             // Если символ с индексом которому равен итератор это еденичное число
             digits.push(number[i]); // Пушим его в массив
@@ -97,7 +93,7 @@ function getRandomPassword(passwordLength = 8) {
 
     let password = [];
     for (let i = 0; i < passwordLength; i++) {
-        let randomDigit = Math.trunc(Math.random() * 10);
+        const randomDigit = Math.trunc(Math.random() * 10);
         password.push(randomDigit); // Пушим в массив рандомное число пока итератор меньше параметра, который получили от юзера
     }
     password = password.join(''); // Собираем массив значений в строку
@@ -126,7 +122,7 @@ function deleteLetters(letter, str) {
 
 function isPalyndrom(str) {
     str = str.replace(/\s/g, '').toLowerCase(); // Удаляем пробелы из строки и переводим её в нижний регистр
-    let n = str.length; // устанавливаем в переменную n длинну строки str
+    const n = str.length; // устанавливаем в переменную n длинну строки str
 
     for (let i = 0; i < n / 2; i++) {
         if (str.charAt(i) !== str.charAt(n - 1 - i))
