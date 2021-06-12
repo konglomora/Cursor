@@ -89,8 +89,9 @@ function countLetter(letter, str) {
 // ? Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
 // ** Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124
 
-function getRandomPassword(passwordLength) {
-    if (passwordLength == 0 || isNotaNumber(passwordLength))
+function getRandomPassword(passwordLength = 8) {
+    if (passwordLength.trim() === '') passwordLength = 8;
+    if (passwordLength < 0 || isNotaNumber(passwordLength))
         // Валидируем параметр
         return 'Use integers to generate password';
 
