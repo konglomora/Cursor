@@ -38,13 +38,13 @@ button {
   border: 7px dashed white;
   border-radius: 20px;
   padding: 20px;
-  margin: 20px;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   background-color: #5d3db6;
   width: 45%;
   transition: all 1s linear;
+  margin: 20px auto;
 }
 
 .result {
