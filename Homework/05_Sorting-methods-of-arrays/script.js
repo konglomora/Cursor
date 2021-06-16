@@ -43,11 +43,27 @@ function getRandomArray(length, min, max) {
 // ** Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2
 
 function getModa(...args) {
-    const moda = [];
-    return moda;
+    let modaCount = 0; // Счётчик количества повторений значения моды
+    let repetitionCounter = 0; // Счетчик повторений каждого значения массива
+    let modaValue = args[0]; // Значение моды
+    for (let i = 0; i < args.length; i++) {
+        if (repetitionCounter > modaCount) {
+            modaCount = repetitionCounter;
+            modaValue = args[i +  1];
+        }
+        repetitionCounter = 0;
+        for (let j = i; j < args.length; j++) {
+            if (args[j] == args[i])
+                repetitionCounter++
+
+        }
+    }
+
+    return `moda value = ${modaValue}`;
+
 }
 
-// console.log(getModa(1, 2, 3, 5));
+// console.log(getModa(1, 2, 3, 5, 5, 5, 5));
 
 // * Task 3
 // ? Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів.
