@@ -3,7 +3,8 @@ function isNotaNumber(n) {
     return isNaN(+n) || String(n).trim() === '';
 }
 
-function skipNotInteger(array) { // Функция для пропуска не целых чисел
+function skipNotInteger(array) {
+    // Функция для пропуска не целых чисел
     const integerNumbers = [];
     for (let i = 0; i < array.length; i++) {
         if (Number.isInteger(array[i])) {
@@ -80,3 +81,51 @@ function getMedian(...numbers) {
 }
 
 // console.log(getMedian(1, 2 ,3 , 4 , 5, 6, 7, 12.2));
+
+// * Task 5
+// ? Створіть функцію filterEvenNumbers(...numbers) – яка фільтрує парні числа передані як аргументи функції
+// ** Приклад: filterEvenNumbers(1, 2, 3, 4, 5, 6) -> [1, 3, 5]
+
+function filterEvenNumbers(...numbers) {
+    const result = [];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] % 2) result.push(numbers[i]);
+    }
+    return result;
+}
+
+// console.log(filterEvenNumbers(1, 2 ,3 ,4 , 5, 6));
+
+// * Task 6
+// ?  Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0
+// ** Приклад: countPositiveNumbers(1, -2, 3, -4, -5, 6) -> 3
+
+function countPositiveNumbers(...numbers) {
+    let count = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > 0) {
+            count++;
+        } else {
+            count;
+        }
+    }
+    return count;
+}
+
+// console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6));
+
+// * Task 7
+// ? Створіть функцію getDividedByFive(...numbers) – яка відфільтрує усі елементи в масиві та залишить тільки ті, які діляться на ціло на 5
+// ** Приклад: getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) -> [55, 55]
+
+function getDividedByFive(...numbers) {
+    const result = [];
+    for (let i = 0; i < numbers.length; i++) {
+        if (!(numbers[i] % 5)) result.push(numbers[i]);
+    }
+    return result;
+}
+
+// console.log(
+//     getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)
+// );
