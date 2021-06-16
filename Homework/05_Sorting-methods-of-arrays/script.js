@@ -49,7 +49,7 @@ function getModa(...args) {
     for (let i = 0; i < args.length; i++) {
         if (repetitionCounter > modaCount) {
             modaCount = repetitionCounter;
-            modaValue = args[i +  1];
+            modaValue = args[i -  1];
         }
         repetitionCounter = 0;
         for (let j = i; j < args.length; j++) {
@@ -63,7 +63,7 @@ function getModa(...args) {
 
 }
 
-// console.log(getModa(1, 2, 3, 5, 5, 5, 5));
+console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 // * Task 3
 // ? Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів.
