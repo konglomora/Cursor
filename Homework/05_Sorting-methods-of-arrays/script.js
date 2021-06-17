@@ -149,55 +149,37 @@ function getDividedByFive(...numbers) {
 // ** Приклад: replaceBadWords("Holy shit!") -> "Holy ****!"
 // ** Приклад: replaceBadWords("It's bullshit!") -> "It's bull****!"
 
-// const replaceBadWords = (str) => {
-//     let strToArray = str.split(' ');
-//     const badWords = ['fuck', 'shit', 'whore'];
-
-//     strToArray = strToArray.map((word, i, array) => {
-//         console.log(array);
-//         if (String(word).includes(badWords[i])) {
-//             array[i] = String(word).replace(badWords[i], '****');
-//         }
-//     });
-
-//     return strToArray;
-// };
-
-// let symbolToReplace = '';
-// for (let j = 0; j < String(badWords[i]).length; j++) {
-// Счётчик знаков для замены слова из badwords
-//     symbolToReplace += '*';
-// }
-
-
 function replaceBadWords(str, ...swearing) {
-    if (!str.length) return 'You have not entered anything';
-    const badWords = ['fuck', 'shit', ...swearing];
-    let stringWords = str.split(/[\s,]+/);
+    if (!str.length) return 'You have not entered anything'; // Валидация полученных аргументов
+    const badWords = ['fuck', 'shit', ...swearing]; // Массив из ругательств
+    let stringWords = str.split(/[\s,]+/); // Массив из слов, которые разделены пробелами через регулярное выражение, для случая, когда пробелов больше чем 1
     stringWords = stringWords.map((wordFromString) => {
         if (
+            // Если хоть 1 элемент из массива stringWords содержит элемент из badWords
             badWords.some((badWord) =>
                 wordFromString.toLowerCase().includes(badWord)
             )
         ) {
-            let swearingAtString = badWords.filter((badWord) =>
+            // Фильтруем элементы из stringWords которые содержат элементы из badWords, и складываем в массив swearingAtString
+            const swearingAtString = badWords.filter((badWord) =>
                 wordFromString.toLowerCase().includes(badWord)
             );
             swearingAtString.forEach((badWord) => {
-                let symbolsToReplace = '*'.repeat(badWord.length);
-                let badWordpattern = new RegExp(badWord, 'g');
+                // Для каждого элемента из swearingAtString
+                const symbolsToReplace = '*'.repeat(badWord.length); // Считаем сколько нужно * в зависимости от длинны ругательства которое мы нашли
+                // Меняем ругательство из badWords которое мы нашли, на symbolsToReplace, в котором высчитали длинну этого ругательства
                 wordFromString = wordFromString.replaceAll(
-                    badWordpattern,
+                    badWord,
                     symbolsToReplace
                 );
             });
-        };
-        return wordFromString;
+        }
+        return wordFromString; // Возвращаем зацензуренное слово
     });
     return stringWords.join(' ');
 }
 
-console.log(replaceBadWords('fuckfuck shite asd asdasd fuck fuckfuck'));
+console.log(replaceBadWords('funck fucking shit with bitches', 'bitch'));
 
 // * Task 9
 // ? Створіть функцію divideByThree(word), яка розбиває кожне слово на умовні склади по 3 букви.
