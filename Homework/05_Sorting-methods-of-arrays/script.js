@@ -35,35 +35,35 @@ function getRandomArray(length, min, max) {
     return randomArray;
 }
 
-// console.log(getRandomArray(5, 1, 10));
+// console.log(getRandomArray(54, 1, 10));
 
 // * Task 2
 // ? Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих в неї аргументів.
 // ! НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
 // ** Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2
+// TODO: Support for multiple mod values
 
 function getModa(...args) {
+    if (!args.length || args.some(isNaN)) return 'Please, try again!';
+    const intNumbers = skipNotInteger(args);
     let modaCount = 0; // Счётчик количества повторений значения моды
     let repetitionCounter = 0; // Счетчик повторений каждого значения массива
-    let modaValue = args[0]; // Значение моды
-    for (let i = 0; i < args.length; i++) {
+    let modaValue = intNumbers[0]; // Значение моды
+    for (let i = 0; i < intNumbers.length; i++) {
         if (repetitionCounter > modaCount) {
             modaCount = repetitionCounter;
-            modaValue = args[i -  1];
+            modaValue = intNumbers[i - 1];
         }
         repetitionCounter = 0;
-        for (let j = i; j < args.length; j++) {
-            if (args[j] == args[i])
-                repetitionCounter++
-
+        for (let j = i; j < intNumbers.length; j++) {
+            if (intNumbers[j] == intNumbers[i]) repetitionCounter++;
         }
     }
 
-    return `moda value = ${modaValue}`;
-
+    return `Moda value = ${modaValue}`;
 }
 
-console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+// console.log(getModa(1, 1, 1, 2, 2, 2));
 
 // * Task 3
 // ? Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів.
@@ -71,6 +71,8 @@ console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 // ** Приклад: getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 34.4
 
 function getAverage(...numbers) {
+    if (!numbers.length) return 'You have not entered anything';
+    else if (numbers.some(isNaN)) return 'You entered not a number';
     const intNumbers = skipNotInteger(numbers);
     return intNumbers.reduce((a, b) => a + b) / intNumbers.length;
 }
@@ -103,45 +105,119 @@ function getMedian(...numbers) {
 // ** Приклад: filterEvenNumbers(1, 2, 3, 4, 5, 6) -> [1, 3, 5]
 
 function filterEvenNumbers(...numbers) {
-    const result = [];
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] % 2) result.push(numbers[i]);
-    }
-    return result;
+    return numbers.filter((number) => number % 2);
 }
-
-// console.log(filterEvenNumbers(1, 2 ,3 ,4 , 5, 6));
+// console.log(`Even numbers = ${filterEvenNumber(1, 2, 3, 4, 5, 6)}`); // 1, 3, 5
 
 // * Task 6
 // ?  Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0
 // ** Приклад: countPositiveNumbers(1, -2, 3, -4, -5, 6) -> 3
 
 function countPositiveNumbers(...numbers) {
-    let count = 0;
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] > 0) {
-            count++;
-        } else {
-            count;
-        }
+    if (numbers.some(isNotaNumber)) {
+        return 'Use number, please';
     }
-    return count;
+    return numbers.reduce((count, number) => {
+        if (number > 0) count++;
+        return count;
+    }, 0);
 }
 
-// console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6));
+// console.log(countPositiveNumbers(1, -2, 3, -5, 6)); // 3
 
 // * Task 7
 // ? Створіть функцію getDividedByFive(...numbers) – яка відфільтрує усі елементи в масиві та залишить тільки ті, які діляться на ціло на 5
 // ** Приклад: getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) -> [55, 55]
 
 function getDividedByFive(...numbers) {
-    const result = [];
-    for (let i = 0; i < numbers.length; i++) {
-        if (!(numbers[i] % 5)) result.push(numbers[i]);
+    if (numbers.some(isNotaNumber)) {
+        return 'Use number, please';
+    }
+    return numbers.filter((number) => number % 5 === 0);
+}
+
+// console.log(
+//     getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) // [ 55, 55 ]
+// );
+
+// * Task 8
+// ? Створіть функцію replaceBadWords(string) – яка 1) розіб'є фразу на слова, 2) замінить погані слова на зірочки (*).
+// ? При вирішенні цього завдання необхідно розбити масив на слова за допомогою функції .split(" "), після чого масив необхідно буде склеїти .join(" ")
+// ? Погані слова: shit та fuck.
+// ? Передбачте можливість розширювати список цих слів у майбутньому.
+// ** Приклад: replaceBadWords("Are you fucking kidding?") -> "Are you ****ing kidding?"
+// ** Приклад: replaceBadWords("Holy shit!") -> "Holy ****!"
+// ** Приклад: replaceBadWords("It's bullshit!") -> "It's bull****!"
+
+// const replaceBadWords = (str) => {
+//     let strToArray = str.split(' ');
+//     const badWords = ['fuck', 'shit', 'whore'];
+
+//     strToArray = strToArray.map((word, i, array) => {
+//         console.log(array);
+//         if (String(word).includes(badWords[i])) {
+//             array[i] = String(word).replace(badWords[i], '****');
+//         }
+//     });
+
+//     return strToArray;
+// };
+
+// let symbolToReplace = '';
+// for (let j = 0; j < String(badWords[i]).length; j++) {
+// Счётчик знаков для замены слова из badwords
+//     symbolToReplace += '*';
+// }
+
+
+function replaceBadWords(str, ...swearing) {
+    if (!str.length) return 'You have not entered anything';
+    const badWords = ['fuck', 'shit', ...swearing];
+    let stringWords = str.split(/[\s,]+/);
+    stringWords = stringWords.map((wordFromString) => {
+        if (
+            badWords.some((badWord) =>
+                wordFromString.toLowerCase().includes(badWord)
+            )
+        ) {
+            let swearingAtString = badWords.filter((badWord) =>
+                wordFromString.toLowerCase().includes(badWord)
+            );
+            swearingAtString.forEach((badWord) => {
+                let symbolsToReplace = '*'.repeat(badWord.length);
+                let badWordpattern = new RegExp(badWord, 'g');
+                wordFromString = wordFromString.replaceAll(
+                    badWordpattern,
+                    symbolsToReplace
+                );
+            });
+        };
+        return wordFromString;
+    });
+    return stringWords.join(' ');
+}
+
+console.log(replaceBadWords('fuckfuck shite asd asdasd fuck fuckfuck'));
+
+// * Task 9
+// ? Створіть функцію divideByThree(word), яка розбиває кожне слово на умовні склади по 3 букви.
+// ? Якщо букв менше трьох – не розбиває.
+// ! Пробіли завжди видаляються. Рядок приводится до нижнього регістру.
+// ** divideByThree("Commander) -> ["com", "man", "der"]
+// ** Приклад: divideByThree("live") -> ["liv", "e"]
+
+function divideByThree(word) {
+    if (!word.length) return 'Please, input something';
+    let wordsArr = word.toLowerCase().replaceAll(' ', '');
+    let result = [];
+    if (wordsArr.length > 3) {
+        for (let i = 0; i < wordsArr.length; i += 3) {
+            result.push(wordsArr.slice(i, i + 3));
+        }
+    } else {
+        return wordsArr;
     }
     return result;
 }
 
-// console.log(
-//     getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)
-// );
+// console.log(divideByThree('live')); // ["cas", "do"]
