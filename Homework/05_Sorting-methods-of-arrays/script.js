@@ -207,10 +207,10 @@ function replaceBadWords(str, ...swearing) {
 // ** divideByThree("Commander) -> ["com", "man", "der"]
 // ** Приклад: divideByThree("live") -> ["liv", "e"]
 
-function divideBySyllables(word, numberOfSyllables) {
+function divideBySyllables(word, numberOfSyllables = 3) {
     if (!word.length) return 'Please, input something';
-    else if (isNotaNumber(numberOfSyllables))
-        return 'Use number for number of syllables';
+    if (numberOfSyllables < 0 || !Number.isInteger(numberOfSyllables))
+        return 'Please, use positive integer number for number of syllables';
 
     let wordsArr = word.toLowerCase().replaceAll(' ', '');
     let result = [];
@@ -346,9 +346,30 @@ function runSixthTask() {
 
 document.querySelector('.function6__submit').onclick = runSixthTask;
 
-// * Task 8 ---------------------------------------------------------------------------------------------
+// * Task 7 ---------------------------------------------------------------------------------------------
 
 function runSeventhTask() {
+    const stringArr = document
+        .querySelector('.function7__input')
+        .value.split(',');
+
+    const numbersArray = stringArr.map((item, i, arr) => {
+        if (arr[i].trim() === '') {
+            arr.splice(--i, 1);
+        } else return +item;
+    });
+    document.querySelector(
+        '.function7__result'
+    ).innerHTML = `<div class="result">Результат: ${getDividedByFive(
+        ...numbersArray
+    )}</div>`;
+}
+
+document.querySelector('.function7__submit').onclick = runSeventhTask;
+
+// * Task 8 ---------------------------------------------------------------------------------------------
+
+function runEighthTask() {
     const string = document.querySelector('.function8__input1').value;
     const otherBadWords = document.querySelector('.function8__input2').value;
     document.querySelector(
@@ -359,32 +380,22 @@ function runSeventhTask() {
     )}</div>`;
 }
 
-document.querySelector('.function8__submit').onclick = runSeventhTask;
-
-// * Task 8 ---------------------------------------------------------------------------------------------
-
-function runNinthTask() {
-    const letter = document.querySelector('.function9__input1').value;
-    const str = document.querySelector('.function9__input2').value;
-    document.querySelector(
-        '.function9__result'
-    ).innerHTML = `<span class="result">Результат: ${deleteLetters(
-        letter,
-        str
-    )}</span>`;
-}
-
-document.querySelector('.function9__submit').onclick = runNinthTask;
+document.querySelector('.function8__submit').onclick = runEighthTask;
 
 // * Task 9 ---------------------------------------------------------------------------------------------
 
-function runTenthTask() {
-    const str = document.querySelector('.function10__input').value;
+function runNinethTask() {
+    const word = document.querySelector('.function9__input1').value;
+    let numberOfSyllables = document.querySelector('.function9__input2').value;
+    if (numberOfSyllables.trim() === '') numberOfSyllables = 3;
+    else numberOfSyllables = +numberOfSyllables;
+
     document.querySelector(
-        '.function10__result'
-    ).innerHTML = `<span class="result">Результат: ${isPalyndrom(str)}</span>`;
+        '.function9__result'
+    ).innerHTML = `<span class="result">Результат: ${divideBySyllables(
+        word,
+        numberOfSyllables
+    )}</span>`;
 }
 
-document.querySelector('.function10__submit').onclick = runTenthTask;
-
-
+document.querySelector('.function9__submit').onclick = runNinethTask;
