@@ -94,7 +94,7 @@ function getAverage(...numbers) {
         return 'You entered not a number or did not use a comma';
 
     const intNumbers = skipNotInteger(numbers);
-    return intNumbers.reduce((a, b) => a + b) / intNumbers.length;
+    return (intNumbers.reduce((a, b) => a + b) / intNumbers.length).toFixed(2);
 }
 
 // * Task 4
@@ -156,7 +156,9 @@ function getDividedByFive(...numbers) {
     else if (numbers.some(isNotaNumber))
         return 'You entered not a number or did not use a comma';
 
-    return numbers.filter((number) => number % 5 === 0);
+    const filtredNumbers = numbers.filter((number) => number % 5 === 0);
+    if (!filtredNumbers.length) return 'No matching numbers';
+    return filtredNumbers;
 }
 
 // * Task 8
@@ -364,6 +366,8 @@ function runSeventhTask() {
         ...numbersArray
     )}</div>`;
 }
+
+// 11, 22, 12, 2
 
 document.querySelector('.function7__submit').onclick = runSeventhTask;
 
