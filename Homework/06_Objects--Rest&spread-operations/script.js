@@ -35,7 +35,9 @@ const students = [
 const getSubjects = (studentIndex) => {
     const studentSubjectsArray = Object.keys(students[studentIndex].subjects);
     return studentSubjectsArray.map((item) => {
-        return item.charAt(0).toUpperCase() + item.substr(1).replace('_', ' ');
+        return (
+            item.charAt(0).toUpperCase() + item.substr(1).replaceAll('_', ' ')
+        );
     });
 };
 
@@ -121,6 +123,6 @@ const calculateWordLetters = (word) => {
     return letterCountObject;
 };
 
-console.log(
-    calculateWordLetters('тесттесттесттесттесттесттесттесттесттесттест')
-);
+// console.log(
+//     calculateWordLetters('тесттесттесттесттесттесттесттесттесттесттест')
+// );
