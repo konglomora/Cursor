@@ -114,15 +114,13 @@ const getBestStudent = (students) => {
 // ? Яка повертає обє'кт, в якому ключі це букви у слові, а значення – кількість їх повторень.
 
 const calculateWordLetters = (word) => {
-    const letterCountObject = word.split('').reduce((counter, item) => {
-        if (counter[item]) {
-            counter[item]++;
-        } else counter[item] = 1;
+    const letterCountObject = word.split('').reduce((counter, letter) => {
+        counter[letter] ? counter[letter]++ : (counter[letter] = 1);
         return counter;
     }, {});
     return letterCountObject;
 };
 
-// console.log(
-//     calculateWordLetters('тесттесттесттесттесттесттесттесттесттесттест')
-// );
+console.log(
+    calculateWordLetters('тест на тест')
+);
