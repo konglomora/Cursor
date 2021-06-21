@@ -41,8 +41,6 @@ const getSubjects = (studentIndex) => {
     });
 };
 
-// console.log(getSubjects(0));
-
 // * Task 2
 // ? Створіть функцію getAverageMark(students[0]) --> 3.79 – яка поверне середню оцінку по усім предметам для переданого студента
 // ! НЕ МАСИВА СТУДЕНТІВ.
@@ -63,8 +61,6 @@ const getAverageMark = (studentIndex) => {
     return averageStudentMark;
 };
 
-// console.log(getAverageMark(0));
-
 // * Task 3
 // ? Створіть функцію getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79}
 // ? яка повертає інформацію загального виду по переданому студенту
@@ -78,8 +74,6 @@ const getStudentInfo = (studentIndex) => {
     return { course, name, averageMark };
 };
 
-// console.log(getStudentInfo(0));
-
 // * Task 4
 // ? Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"]
 // ? Яка повертає імена студентів у алфавітному порядку.
@@ -90,7 +84,6 @@ const getStudentsNames = (students) => {
     }, []);
     return studentNames;
 };
-// console.log(getStudentsNames(students));
 
 // * Task 5
 // ? Створіть функцію getBestStudent(students) --> "Anton"
@@ -107,8 +100,6 @@ const getBestStudent = (students) => {
     return bestStudents;
 };
 
-// console.log(getBestStudent(students));
-
 // * Task 6
 // ? Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1
 // ? Яка повертає обє'кт, в якому ключі це букви у слові, а значення – кількість їх повторень.
@@ -121,6 +112,3 @@ const calculateWordLetters = (word) => {
     return letterCountObject;
 };
 
-console.log(
-    calculateWordLetters('тест на тест')
-);
