@@ -33,7 +33,7 @@ const students = [
 // ? Зверніть увагу – назву предмету необхідно повертати з великої літери, а _ – замінити на пробіл
 
 const getSubjects = (studentIndex) => {
-    if (studentIndex > students.length || studentIndex < 0)
+    if (studentIndex >= students.length || studentIndex < 0)
         return 'Такого студента немає';
     const studentSubjectsArray = Object.keys(students[studentIndex].subjects);
     return studentSubjectsArray.map((item) => {
@@ -54,7 +54,7 @@ function getAverage(...numbers) {
 }
 
 const getAverageMark = (studentIndex) => {
-    if (studentIndex > students.length || studentIndex < 0)
+    if (studentIndex >= students.length || studentIndex < 0)
         return 'Такого студента немає';
 
     const student = students[studentIndex];
@@ -73,7 +73,7 @@ const getAverageMark = (studentIndex) => {
 // ? Повинна бути виведена інформація: курс, ім'я, середня оцінка.
 
 const getStudentInfo = (studentIndex) => {
-    if (studentIndex > students.length || studentIndex < 0)
+    if (studentIndex >= students.length || studentIndex < 0)
         return 'Такого студента немає';
 
     const student = students[studentIndex];
