@@ -1,7 +1,7 @@
 // * Task 1 ---------------------------------------------------------------------------------------------
 
 function runFirstTask() {
-    const studentNumber = +document.querySelector('.function1__input').value;
+    const studentNumber = +document.querySelector('.function1__input').value - 1;
     document.querySelector(
         '.function1__result'
     ).innerHTML = `<span class="result">Результат: ${getSubjects(
@@ -14,7 +14,7 @@ document.querySelector('.function1__submit').onclick = runFirstTask;
 // * Task 2 ---------------------------------------------------------------------------------------------
 
 function runSecondTask() {
-    const studentNumber = +document.querySelector('.function2__input').value;
+    const studentNumber = +document.querySelector('.function2__input').value - 1;
     document.querySelector(
         '.function2__result'
     ).innerHTML = `<span class="result">Результат: ${getAverageMark(
@@ -27,7 +27,7 @@ document.querySelector('.function2__submit').onclick = runSecondTask;
 // * Task 3 ---------------------------------------------------------------------------------------------
 
 function runThirdTask() {
-    const studentNumber = +document.querySelector('.function3__input').value;
+    const studentNumber = +document.querySelector('.function3__input').value - 1;
     const result = getStudentInfo(studentNumber);
     document.querySelector(
         '.function3__result'

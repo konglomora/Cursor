@@ -33,6 +33,8 @@ const students = [
 // ? Зверніть увагу – назву предмету необхідно повертати з великої літери, а _ – замінити на пробіл
 
 const getSubjects = (studentIndex) => {
+    if (studentIndex > students.length || studentIndex < 0)
+        return 'Такого студента немає';
     const studentSubjectsArray = Object.keys(students[studentIndex].subjects);
     return studentSubjectsArray.map((item) => {
         return (
@@ -52,6 +54,9 @@ function getAverage(...numbers) {
 }
 
 const getAverageMark = (studentIndex) => {
+    if (studentIndex > students.length || studentIndex < 0)
+        return 'Такого студента немає';
+
     const student = students[studentIndex];
     const studentsSubjecstMarks = Object.values(student.subjects);
     const studentAllMarksArray = studentsSubjecstMarks.reduce((accum, item) => {
@@ -68,9 +73,12 @@ const getAverageMark = (studentIndex) => {
 // ? Повинна бути виведена інформація: курс, ім'я, середня оцінка.
 
 const getStudentInfo = (studentIndex) => {
+    if (studentIndex > students.length || studentIndex < 0)
+        return 'Такого студента немає';
+
     const student = students[studentIndex];
     const { course, name } = student;
-    const averageMark = getAverageMark(studentIndex);
+    const averageMark = getAverageMark(++studentIndex);
     return { course, name, averageMark };
 };
 
@@ -90,25 +98,29 @@ const getStudentsNames = (students) => {
 // ? Яка повертає кращого студента зі списку по показнику середньої оцінки.
 
 const getBestStudent = (students) => {
-    let bestStudents = [];
-    bestMark = Math.max(...students.map((student, i) => getAverageMark(i)));
-    for (i = 0; i < students.length; i++) {
-        students[i]['Average mark'] = getAverageMark(i);
-        if (students[i]['Average mark'] === bestMark)
-            bestStudents.push(students[i].name);
+    const bestAverageMark = Math.max(
+        ...students.map((student, i) => getAverageMark(i))
+    );
+    const bestStudents = [];
+    for (index in students) {
+        if (bestAverageMark === getAverageMark(index)) {
+            bestStudents.push(students[index].name);
+        }
     }
     return bestStudents;
 };
+
+// console.log(getBestStudent(students));
 
 // * Task 6
 // ? Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1
 // ? Яка повертає обє'кт, в якому ключі це букви у слові, а значення – кількість їх повторень.
 
 const calculateWordLetters = (word) => {
-    const letterCountObject = word.split('').reduce((counter, letter) => {
+    if (!word.length) return 'Ви нiчого не ввели';
+    const letterCountObject = word.replaceAll(' ','').split('').reduce((counter, letter) => {
         counter[letter] ? counter[letter]++ : (counter[letter] = 1);
         return counter;
     }, {});
     return letterCountObject;
 };
-
