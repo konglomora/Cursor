@@ -78,7 +78,7 @@ const getStudentInfo = (studentIndex) => {
 
     const student = students[studentIndex];
     const { course, name } = student;
-    const averageMark = getAverageMark(++studentIndex);
+    const averageMark = getAverageMark(studentIndex);
     return { course, name, averageMark };
 };
 

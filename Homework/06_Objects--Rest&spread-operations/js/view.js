@@ -28,6 +28,7 @@ document.querySelector('.function2__submit').onclick = runSecondTask;
 
 function runThirdTask() {
     const studentNumber = +document.querySelector('.function3__input').value - 1;
+    console.log(studentNumber);
     const result = getStudentInfo(studentNumber);
     document.querySelector(
         '.function3__result'
