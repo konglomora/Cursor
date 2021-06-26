@@ -77,10 +77,10 @@ function getMySalary() {
         };
         console.log(res);
     }, 10000);
-    setTimeout(() => clearInterval(timerid), 10000);
+    setTimeout(() => clearInterval(timerid), 100000);
 }
 
 console.group('Function 4');
-console.group('getMySalary.call(litva)');
+console.group('getMySalary.call(litva):');
 getMySalary.call(litva);
 console.groupEnd();
