@@ -67,7 +67,9 @@ console.groupEnd();
 
 function getMySalary() {
     const timerid = setInterval(() => {
-        const salary = Math.round(1500 + Math.random() * (2000 - 1500));
+        const min = 1500;
+        const max = 2000;
+        const salary = Math.round(min + Math.random() * (max - min));
         const taxes = getMyTaxes.call(this, salary);
         const profit = +(salary - taxes).toFixed(2);
         const res = {
