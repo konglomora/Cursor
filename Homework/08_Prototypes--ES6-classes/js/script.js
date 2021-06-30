@@ -59,7 +59,7 @@ const regularStudent = new Student(
     'Остап Бендер'
 );
 
-console.group('Rgular student');
+console.group('Regular student');
 console.log(`regularStudent.getInfo: ${regularStudent.getInfo()}`);
 
 regularStudent.marks = [5, 4, 4, 5];
