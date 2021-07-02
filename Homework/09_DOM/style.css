@@ -1,0 +1,35 @@
+body{
+  background-color: black;
+}
+
+.block__wrapper{
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px 50px;
+  width: 250px;
+  margin: 150px auto;
+  border: 10px solid white;
+  border-radius: 10px;
+}
+
+.block{
+  width: 50px;
+  height: 50px;
+
+}
+
+.block:nth-child(1){
+  border-top-left-radius: 20px;
+}
+
+.block:nth-child(5) {
+  border-top-right-radius: 20px;
+}
+
+.block:last-child{
+  border-bottom-right-radius: 20px;
+}
+
+.block:nth-child(5){
+  border-bottom-left-radius: 20px;
+}
+

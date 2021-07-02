@@ -1,15 +1,17 @@
-function createSquares(squareCount) {
+const wrapper = document.createElement('div');
+wrapper.classList.add('block__wrapper');
+document.body.append(wrapper);
+
+function generateBlocks() {
+  const squareCount = 25
+    for (let i = 0; i < squareCount; i++) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+        wrapper.append(block);
+    }
+
+    const createdBlocks = document.querySelectorAll('.block');
     setInterval(() => {
-        const wrapper = document.querySelector('.block__wrapper');
-
-        for (let i = 0; i < squareCount; i++) {
-            const square = document.createElement('div');
-            square.classList.add('block');
-            wrapper.append(square);
-        }
-
-        const createdBlocks = document.querySelectorAll('.block');
-
         createdBlocks.forEach((block) => {
             const redProportion = Math.trunc(Math.random() * (0 - 255) + 255);
             const greenProportion = Math.trunc(Math.random() * (0 - 255) + 255);
@@ -24,4 +26,5 @@ function createSquares(squareCount) {
     }, 1000);
 }
 
-createSquares(50);
+generateBlocks();
+
