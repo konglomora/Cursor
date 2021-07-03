@@ -1,18 +1,31 @@
-body{
+body {
   background-color: black;
 }
 
-.block__wrapper{
+.blocks__wrapper {
   display: grid;
   grid-template-columns: 50px 50px 50px 50px 50px;
   width: 250px;
-  margin: 150px auto;
+  margin: 20px auto;
 }
 
-.block{
+.block {
   width: 50px;
   height: 50px;
-
 }
 
+.buttons__wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
 
+.button {
+  color: white;
+  background-color: rgb(86, 35, 153);
+  border: 4px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 10px;
+}
