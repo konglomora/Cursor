@@ -1,10 +1,10 @@
-function generateColors() {
+function getRandomColor() {
   const colorSchemeArray = [];
   for (i = 0; i < 3; i++) {
     const colorProportion = Math.trunc(Math.random() * (0 - 255) + 255);
     colorSchemeArray.push(colorProportion);
   }
-  return colorSchemeArray.join();
+  return `rgb(${colorSchemeArray.join()})`;
 }
 
 const generateBlocks = () => {
@@ -21,7 +21,7 @@ const generateBlocks = () => {
 const changeBlocksColor = () => {
   const allBlocks = document.querySelectorAll('.block');
   allBlocks.forEach(
-    (block) => (block.style.backgroundColor = `rgb(${generateColors()})`)
+    (block) => (block.style.backgroundColor = getRandomColor())
   );
 };
 
