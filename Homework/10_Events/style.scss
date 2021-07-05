@@ -35,6 +35,11 @@ body {
     border-radius: 20px;
     padding: 1px;
     transition: all 0.09s;
+    &.down {
+      transform: scale(10.1);
+      border-color: white;
+      box-shadow: 0 0 10px #8c3b8c;
+    }
     kbd {
       color: white;
       font-family: Roboto;
@@ -42,10 +47,4 @@ body {
       font-size: 25px;
     }
   }
-}
-
-.down {
-  transform: scale(10.1);
-  border-color: white;
-  box-shadow: 0 0 10px #8c3b8c;
 }
