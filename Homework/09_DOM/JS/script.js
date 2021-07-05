@@ -21,7 +21,7 @@ const generateBlocks = () => {
 const changeBlocksColor = () => {
   const allBlocks = document.querySelectorAll('.block');
   allBlocks.forEach(
-    (block) => (block.style.backgroundColor = getRandomColor())
+    block => (block.style.backgroundColor = getRandomColor())
   );
 };
 
