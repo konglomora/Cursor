@@ -5,7 +5,6 @@ function playSound(event) {
   audio.currentTime = 0;
   audio.play();
   key.classList.add('down');
-  console.log(key);
 }
 
 function removeTransition(element) {
