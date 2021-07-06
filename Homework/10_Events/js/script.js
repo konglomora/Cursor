@@ -5,10 +5,10 @@ function playSound(event) {
   audio.currentTime = 0;
   audio.play();
   key.classList.add('down');
+
 }
 
-function removeTransition(element) {
-  if (element.propertyName !== 'transform') return;
+function removeTransition() {
   this.classList.remove('down');
 }
 
