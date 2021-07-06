@@ -49,20 +49,19 @@ body {
   }
 }
 
-
 @media screen and (max-width: 992px) {
   .keys {
-    .key{
-          width: 25%;
+    .key {
+      width: 25%;
     }
   }
 }
 
 @media screen and (max-width: 760px) {
   .keys {
-    .key{
-          width: 35%;
-          margin-bottom: 20px;
+    .key {
+      width: 35%;
+      margin-bottom: 20px;
     }
   }
 }
@@ -70,9 +69,9 @@ body {
 @media screen and (max-width: 528px) {
   .keys {
     top: calc(30% - 150px);
-    .key{
-          width: 50%;
-          margin-bottom: 40px;
+    .key {
+      width: 50%;
+      margin-bottom: 40px;
     }
   }
 }
