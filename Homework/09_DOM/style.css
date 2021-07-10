@@ -29,3 +29,11 @@ body {
   cursor: pointer;
   margin: 10px;
 }
+
+.block-inteval-colorizer {
+  display: none;
+}
+
+.visible{
+  display: inline-block;
+}
