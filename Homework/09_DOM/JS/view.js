@@ -5,5 +5,8 @@ const buttonBlocksColorInterval = document.querySelector(
   '.block-inteval-colorizer'
 );
 
-buttonBlocksGenerator.onclick = generateBlocks;
+buttonBlocksGenerator.onclick = () => {
+  generateBlocks()
+  buttonBlocksColorInterval.classList.add('visible')
+};
 buttonBlocksColorInterval.onclick = generateBlocksInterval;
