@@ -1,0 +1,20 @@
+.results {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.characters__block {
+  margin-top: 20px;
+  border: 2px solid black;
+  text-align: center;
+  width: 25%;
+  height: 100px;
+}
+
+.character__gender--image {
+  margin-top: 20px;
+  width: 50%;
+  height: 35%;
+}
