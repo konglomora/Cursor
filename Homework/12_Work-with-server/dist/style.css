@@ -1,20 +1,35 @@
+body {
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
 .results {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 20px;
+  color: black;
 }
 
 .characters__block {
   margin-top: 20px;
+  padding: 10px;
   border: 2px solid black;
   text-align: center;
-  width: 25%;
-  height: 100px;
+  width: 15%;
+  height: 30%;
+  background-color: white;
+}
+
+.character__photo--image {
+  margin: 20px;
+  width: 90%;
 }
 
 .character__gender--image {
   margin-top: 20px;
-  width: 50%;
-  height: 35%;
+  width: 25%;
+  height: 55%;
 }

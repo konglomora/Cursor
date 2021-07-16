@@ -1,6 +1,6 @@
 const resultsBlock = document.querySelector('.results');
 
-const filmsUrl = 'https://swapi.dev/api/films/';
+const filmsURL = 'https://swapi.dev/api/films/';
 
 async function asyncFetch(url, id) {
   const res = await fetch(url + '/' + id);
@@ -10,29 +10,44 @@ async function asyncFetch(url, id) {
 
 async function displayResults(url, data) {
   let output = '';
-  let genderSrc;
-  if (url === filmsUrl) {
+
+  if (url === filmsURL) {
     data.characters.forEach(characterUrl =>
       fetch(characterUrl).then(response => {
-        response.json().then(character => {
-          if (character.gender === 'n/a' || character.gender === 'none')
-            genderSrc = `./img/gender_icons/none.svg`;
-          if (character.gender === 'male')
-            genderSrc = `./img/gender_icons/male.svg`;
-          if (character.gender === 'female')
-            genderSrc = `./img/gender_icons/female.svg`;
-          output += `
+        response
+          .json()
+          .then(character => {
+            const gender = character.gender;
+            const name = character.name;
+            const birthYear = character.birth_year;
+            let genderSrc;
+            let chracterPhotoSRC = `./img/characters_photos/${character.name.replaceAll(
+              ' ',
+              '_'
+            )}.jpg`;
+
+            if (gender === 'n/a' || gender === 'none')
+              genderSrc = `./img/gender_icons/none.svg`;
+            if (gender === 'male') genderSrc = `./img/gender_icons/male.svg`;
+            if (gender === 'female')
+              genderSrc = `./img/gender_icons/female.svg`;
+            if (gender === 'hermaphrodite')
+              genderSrc = `./img/gender_icons/hermaphrodite.png`;
+            output += `
           <div class="characters__block">
-          <div class="chatacter__name">${character.name}</div>
-          <div class="chatacter__birth-year">Birth year: ${character.birth_year}</div>
-          <img class="character__gender--image" src="${genderSrc}" alt="">
+          <div class="chatacter__name">${name}</div>
+          <img class="character__photo--image" src="${chracterPhotoSRC}" alt="Character photo">
+          <div class="chatacter__birth-year">Birth year: ${birthYear}</div>
+          <div class="chatacter__birth-year">Gender:</div>
+          <img class="character__gender--image" src="${genderSrc}" alt="Character gender">
+
           </div>
           `;
-        });
-        resultsBlock.innerHTML = output;
+          })
+          .then(result => (resultsBlock.innerHTML = output));
       })
     );
   }
 }
 
-asyncFetch(filmsUrl, 12);
+asyncFetch(filmsURL, 4);
