@@ -1,39 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 body {
   background-size: cover;
-  background-position: top;
   background-repeat: no-repeat;
   background-color: black;
+  color: white;
+  font-family: "Noto Serif", serif;
 }
 
-.results {
+.select-info__section {
+  margin: 25% auto 10px auto;
+  display: flex;
+  width: 50%;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.characters {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 20px;
-  color: black;
 }
-
-.episode-title {
-  color: white;
-}
-
-.characters__block {
-  margin-top: 20px;
+.characters__card {
+  margin: 50px auto;
   padding: 10px;
-  border: 2px solid black;
+  border: 10px dashed white;
+  border-radius: 10px;
   text-align: center;
-  width: 15%;
+  width: 50%;
   height: 30%;
-  background-color: white;
 }
-
-.character__photo--image {
+.characters__card .character__name {
+  font-weight: 700;
+  font-size: 2em;
+  margin: 40px auto;
+}
+.characters__card .character__photo--image {
   margin: 20px;
   width: 90%;
 }
+.characters__card .character__birth-year {
+  font-weight: 700;
+}
+.characters__card .character__gender--image {
+  margin: 40px auto;
+  width: 10%;
+}
 
-.character__gender--image {
-  margin-top: 20px;
+.planets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.planets .planet__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 25%;
-  height: 55%;
+  padding: 10px;
+  border: 5px dashed white;
+  border-radius: 10px;
+  margin: 10px;
+}
+.planets .planet__card .planet-name {
+  font-weight: 700;
+}
+.planets .planet__card .planet-image {
+  width: 300px;
 }
