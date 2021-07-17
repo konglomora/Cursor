@@ -8,7 +8,7 @@
     <title>Document</title>
   </head>
   <body>
-    <section class="select-info__section">
+    <section class="character-info__section">
       <select name="Episodes" id="episodes-select">
         <option value="1">Star Wars: A New Hope</option>
         <option value="2" selected>Star Wars: The Empire Strikes Back</option>
@@ -19,8 +19,14 @@
       </select>
 
       <button id="getCharacters">Get characters from episode</button>
+    </section>
 
-      <button id="getPlanets">Get planets</button>
+    <section class="planets-info__section">
+      <button id="getPlanets--button">Get planets</button>
+      <div class="nav-buttons__block">
+        <button id="prev-planets--button">Prev planets</button>
+        <button id="next-planets--button">Next planets</button>
+      </div>
     </section>
 
     <div class="characters"></div>

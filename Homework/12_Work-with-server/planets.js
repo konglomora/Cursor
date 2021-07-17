@@ -1,4 +1,4 @@
-const getPlanetsButton = document.getElementById('getPlanets');
+const getPlanetsButton = document.getElementById('getPlanets--button');
 
 getPlanetsButton.addEventListener('click', () => {
   getPlanets();
@@ -11,7 +11,7 @@ async function getPlanets() {
 
   const response = await fetch('https://swapi.dev/api/planets/');
   const planets = await response.json();
-  console.log(planets.results);
+  console.log(planets);
   planets.results.forEach(planet => {
     const planetName = planet.name;
     let planetImageSRC = `./img/planets/${planetName.replaceAll(' ', '_')}.jpg`;

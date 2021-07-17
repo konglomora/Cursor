@@ -7,7 +7,7 @@ body {
   font-family: "Noto Serif", serif;
 }
 
-.select-info__section {
+.character-info__section {
   margin: 25% auto 10px auto;
   display: flex;
   width: 50%;
@@ -47,6 +47,20 @@ body {
   width: 10%;
 }
 
+.planets-info__section {
+  display: flex;
+  margin: 20px auto;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 30%;
+}
+.planets-info__section .nav-buttons__block {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10px;
+}
 .planets {
   display: flex;
   flex-wrap: wrap;
@@ -67,5 +81,5 @@ body {
   font-weight: 700;
 }
 .planets .planet__card .planet-image {
-  width: 300px;
+  width: 70%;
 }
