@@ -5,14 +5,14 @@ const filmsURL = 'https://swapi.dev/api/films/';
 async function getCharatersInfo(url, id) {
   url = url + '/' + id;
   const episode = await getJsonAfterFetch(url);
-  console.log(episode.title);
+  // console.log(episode.title);
   await displayCharacters(episode);
 }
 
 async function displayCharacters(episode) {
   let charactersCards = '';
 
-  charactersBlock.innerHTML = episode.characters.forEach( async characterUrl => {
+  episode.characters.forEach( async characterUrl => {
     const charactersCardsGenerator = new Promise( async resolve => {
       const character = await getJsonAfterFetch(characterUrl);
       charactersCards += renderCharacterCard(character);
@@ -21,9 +21,7 @@ async function displayCharacters(episode) {
 
     charactersBlock.innerHTML = await charactersCardsGenerator;
   });
-  console.log(charactersCards);
-
-  console.log(charactersBlock);
+  console.log(charactersBlock.textContent);
 }
 
 function renderCharacterCard(character) {
@@ -60,5 +58,11 @@ const getCharactersButton = document.getElementById('getCharacters');
 const selectEpisodes = document.getElementById('episodes-select');
 
 getCharactersButton.addEventListener('click', () => {
-  getCharatersInfo(filmsURL, selectEpisodes.value);
+  getCharatersInfo(filmsURL, selectEpisodes.value)
+  
+  setTimeout(() =>{
+    getPlanets();
+    getPlanetsButton.classList.add('hidden');
+  } , 1000)
+  
 });

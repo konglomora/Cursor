@@ -11,7 +11,6 @@ const planetsURL = 'https://swapi.dev/api/planets/';
 
 async function getJsonAfterFetch(url) {
   const response = await fetch(url);
-
   const dataObject = await response.json(response);
   return dataObject;
 }
@@ -41,7 +40,7 @@ function renderPlanetsPage(planetsObject) {
   }
 }
 
-let planetsPageNumber = 0;
+let planetsPageNumber = 1;
 
 function blockCriticalPagePosition(pageNumber) {
   const minPlanetsPagesCount = 1;
