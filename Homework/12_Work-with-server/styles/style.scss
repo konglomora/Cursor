@@ -21,6 +21,7 @@ body {
   padding: 10px;
   justify-content: space-around;
   #episodes-select {
+    cursor: pointer;
     background-color: black;
     color: white;
     font-size: 20px;
@@ -142,5 +143,17 @@ body {
     .planet-image {
       width: 70%;
     }
+  }
+}
+
+
+@media screen and (max-width: 945px) {
+  .character-info__section {
+    flex-direction: column;
+    width: 40%;
+    #episodes-select {
+    margin-bottom: 20px;
+    min-width: 30%;
+  }
   }
 }

@@ -21,6 +21,7 @@ body {
   justify-content: space-around;
 }
 .character-info__section #episodes-select {
+  cursor: pointer;
   background-color: black;
   color: white;
   font-size: 20px;
@@ -141,4 +142,15 @@ body {
 }
 .planets .planet__card .planet-image {
   width: 70%;
+}
+
+@media screen and (max-width: 945px) {
+  .character-info__section {
+    flex-direction: column;
+    width: 40%;
+  }
+  .character-info__section #episodes-select {
+    margin-bottom: 20px;
+    min-width: 30%;
+  }
 }
