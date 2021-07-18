@@ -8,18 +8,16 @@ const getNextPlanetsPageButton = document.getElementById(
 );
 const planetsBlock = document.querySelector('.planets');
 const planetsURL = 'https://swapi.dev/api/planets/';
-const minPlanetsPagesCount = 0;
-const maxPlanetsPagesCount = 6;
 
 async function getJsonAfterFetch(url) {
   const response = await fetch(url);
+
   const dataObject = await response.json(response);
   return dataObject;
 }
 
 async function getPlanets() {
   const planetsObject = await getJsonAfterFetch(planetsURL);
-  console.log(planetsObject);
   renderPlanetsPage(planetsObject);
 }
 
@@ -29,52 +27,58 @@ getPlanetsButton.addEventListener('click', () => {
 
 function renderPlanetsPage(planetsObject) {
   let planetsItem = '';
-  planetsObject.results.forEach(planet => {
-    const planetName = planet.name;
-    planetsItem += `
+  if (planetsObject.detail !== 'Not found') {
+    planetsObject.results.forEach(planet => {
+      const planetName = planet.name;
+      planetsItem += `
     <div class="planet__card">
         <div class="planet-name">${planetName}</div>
-     
+      
     </div>
     `;
-  });
-  planetsBlock.innerHTML = planetsItem;
+    });
+    planetsBlock.innerHTML = planetsItem;
+  }
 }
 
-let planetsPageNumber = 1;
+let planetsPageNumber = 0;
+
+function blockCriticalPagePosition(pageNumber) {
+  const minPlanetsPagesCount = 1;
+  const maxPlanetsPagesCount = 5;
+  if (pageNumber > maxPlanetsPagesCount) {
+    planetsPageNumber = maxPlanetsPagesCount;
+  } else if (pageNumber < minPlanetsPagesCount) {
+    planetsPageNumber = minPlanetsPagesCount;
+  }
+  return planetsPageNumber;
+}
 
 async function getPreviousPlanetsPage(pageNumber) {
+  --pageNumber;
+  blockCriticalPagePosition(pageNumber);
   const planetsObject = await getJsonAfterFetch(
     `https://swapi.dev/api/planets/?page=${pageNumber}`
   );
-
-  console.log(planetsObject);
-  console.log(pageNumber);
   renderPlanetsPage(planetsObject);
+  planetsPageNumber--;
+  blockCriticalPagePosition(pageNumber);
 }
 
 async function getNextPlanetsPage(pageNumber) {
+  ++pageNumber;
+  blockCriticalPagePosition(pageNumber);
   const planetsObject = await getJsonAfterFetch(
     `https://swapi.dev/api/planets/?page=${pageNumber}`
   );
-
-  console.log(planetsObject);
-  console.log(pageNumber);
   renderPlanetsPage(planetsObject);
+  planetsPageNumber++;
 }
 
 getPreviousPlanetsPageButton.addEventListener('click', () => {
   getPreviousPlanetsPage(planetsPageNumber);
-  --planetsPageNumber;
-  if (planetsPageNumber <= minPlanetsPagesCount) {
-    ++planetsPageNumber;
-  }
 });
 
 getNextPlanetsPageButton.addEventListener('click', () => {
   getNextPlanetsPage(planetsPageNumber);
-  ++planetsPageNumber;
-  if (planetsPageNumber > maxPlanetsPagesCount) {
-    --planetsPageNumber;
-  }
 });
