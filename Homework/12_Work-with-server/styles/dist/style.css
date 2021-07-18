@@ -1,18 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 body {
-  background-size: cover;
+  background-image: url("/img/background.jpg");
+  background-size: 55%;
   background-repeat: no-repeat;
+  background-position: top;
   background-color: black;
   color: white;
   font-family: "Noto Serif", serif;
 }
 
+.hidden {
+  display: none;
+}
+
 .character-info__section {
-  margin: 25% auto 10px auto;
+  margin: 25% auto 10px;
   display: flex;
-  width: 50%;
+  width: 70%;
   padding: 10px;
   justify-content: space-around;
+}
+.character-info__section #episodes-select {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+.character-info__section #getCharacters {
+  background-color: #5a43df;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  border: 5px solid black;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.character-info__section #getCharacters:hover {
+  cursor: pointer;
+  border: 5px solid white;
+  background-color: #3519d3;
 }
 
 .characters {
@@ -27,8 +55,8 @@ body {
   border: 10px dashed white;
   border-radius: 10px;
   text-align: center;
-  width: 20%;
-  height: 30%;
+  width: 50%;
+  height: 10%;
 }
 .characters__card .character__name {
   font-weight: 700;
@@ -37,7 +65,7 @@ body {
 }
 .characters__card .character__photo--image {
   margin: 20px;
-  width: 90%;
+  width: 80%;
 }
 .characters__card .character__birth-year {
   font-weight: 700;
@@ -55,12 +83,43 @@ body {
   flex-wrap: wrap;
   width: 30%;
 }
+.planets-info__section #getPlanets--button {
+  background-color: #cb852f;
+  padding: 10px;
+  color: black;
+  font-size: 20px;
+  border: 5px solid black;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.planets-info__section #getPlanets--button:hover {
+  cursor: pointer;
+  border: 5px solid white;
+  background-color: #c2761a;
+}
 .planets-info__section .nav-buttons__block {
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-top: 10px;
 }
+.planets-info__section .nav-buttons__block #prev-planets--button,
+.planets-info__section .nav-buttons__block #next-planets--button {
+  background-color: #5a43df;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  border: 5px solid black;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.planets-info__section .nav-buttons__block #prev-planets--button:hover,
+.planets-info__section .nav-buttons__block #next-planets--button:hover {
+  cursor: pointer;
+  border: 5px solid white;
+  background-color: #3519d3;
+}
+
 .planets {
   display: flex;
   flex-wrap: wrap;
