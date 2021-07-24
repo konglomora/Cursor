@@ -1,8 +1,8 @@
 const path = require('path')
 
 module.exports = {
-	mode: 'production',
-	devtool: 'inline-source-map',
+	mode: 'development',
+	devtool: 'source-map',
 	entry: './src/index.js',
 	output: {
 		filename: 'main.js',
@@ -35,6 +35,6 @@ module.exports = {
 	},
 	devServer: {
 		contentBase: './dist',
-		port: '8086',
+		port: '8091',
 	},
 }
