@@ -19,7 +19,7 @@ function skipNotInteger(array) {
 // ? У функції є параметри: length - довжина масиву, min – мінімальне значення цілого числа, max – максимальне значення цілого числа.
 // ** Приклад: getRandomArray(15, 1, 100) –> [6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2]
 
-function getRandomArray(length, min, max) {
+export default function getRandomArray(length, min, max) {
     if (
         isNotaNumber(length) ||
         isNotaNumber(min) ||

@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-	mode: 'development',
+	mode: 'production',
 	devtool: 'inline-source-map',
 	entry: './src/index.js',
 	output: {
@@ -21,13 +21,20 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.css$/,
-				use: ['style-loader', 'css-loader'],
+				test: /\.s[ac]ss$/i,
+				use: [
+					// Creates `style` nodes from JS strings
+					'style-loader',
+					// Translates CSS into CommonJS
+					'css-loader',
+					// Compiles Sass to CSS
+					'sass-loader',
+				],
 			},
 		],
 	},
 	devServer: {
 		contentBase: './dist',
-		port: '8084'
+		port: '8086',
 	},
 }
