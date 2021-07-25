@@ -1,4 +1,4 @@
-const students = ['Олександр', 'Ігор', 'Олена', 'Іра', 'Олексій', 'Світлана'];
+export const students = ['Олександр', 'Ігор', 'Олена', 'Іра', 'Олексій', 'Світлана'];
 const themes = [
     'Диференційне рівняння',
     'Теорія автоматів',
@@ -10,7 +10,7 @@ const marks = [4, 5, 5, 3, 4, 5];
 // ? Розділіть студентів на пари(хлопець + дівчина) для работи над проєктом.
 // **  У вас повинен вийти вкладений масив з парами студентів: [["Олександр", "Олена"], [..], [...]];
 
-function getPairs(students) {
+export function getPairs(students) {
     const studentsPairs = [
         [students[0], students[2]],
         [students[1], students[3]],
@@ -18,9 +18,6 @@ function getPairs(students) {
     ];
     return studentsPairs;
 }
-
-console.log('\nFunction 1 result');
-console.table(getPairs(students));
 
 // * Task 2
 // ? Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати. 
@@ -36,9 +33,6 @@ function getPairThemes(themes) {
     return pairsWithThemes;
 }
 
-console.log('\nFunction 2 result');
-console.table(getPairThemes(themes));
-
 // * Task 3
 // ? Зіставте оцінки(marks) зі студентом(students)
 // **  [["Саша", 4], [...], [...]]
@@ -52,9 +46,6 @@ function getStudentmarks(students, marks) {
     }
     return studentsMarks;
 }
-
-console.log('\nFunction 3 result');
-console.table(getStudentmarks(students, marks));
 
 // * Task 4
 // ? Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт(тут функція буде нечистою, але не повинна мутувати массив):
@@ -70,6 +61,3 @@ function getRandomMark() {
     }
     return result;
 }
-
-console.log('\nFunction 4 result');
-console.table(getRandomMark());

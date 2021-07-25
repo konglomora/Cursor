@@ -30,8 +30,8 @@ export default function getRandomArray(length, min, max) {
     ) {
         return 'Please, use integer!';
     }
-    minNumber = Math.min(min, max);
-    maxNumber = Math.max(min, max);
+    const minNumber = Math.min(min, max);
+    const maxNumber = Math.max(min, max)
     const randomArray = [];
     for (let i = 0; i < length; i++) {
         const randomNumber = Math.trunc(
@@ -41,8 +41,6 @@ export default function getRandomArray(length, min, max) {
     }
     return randomArray;
 }
-
-// console.log(getRandomArray(54, 1, 10));
 
 // * Task 2
 // ? Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих в неї аргументів.
@@ -80,8 +78,6 @@ const getModa = (...args) => {
     else if (modaArray.length > 1)
         return `Moda values = ${String(modaArray.join(' and '))}`; // Если значений моды несколько
 };
-
-// console.log(getModa()); // [ 6, 2]
 
 // * Task 3
 // ? Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів.

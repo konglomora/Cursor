@@ -1,0 +1,20 @@
+@import '~normalize.css';
+@import 'font.scss';
+@import './card/wrapper.scss';
+@import './card/card.scss';
+@import './card/input.scss';
+@import './card/button.scss';
+@import './card/result.scss';
+@import './card/description.scss';
+
+$body-color: plum;
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: $body-color;
+}
+
+.page--title {
+	text-align: center;
+	margin: 5% 0;
+}
