@@ -1,13 +1,22 @@
 const path = require('path')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
+	context: path.resolve(__dirname, 'src'),
+	entry: './index.js',
 	mode: 'development',
-	devtool: 'source-map',
-	entry: './src/index.js',
 	output: {
-		filename: 'main.js',
+		filename: '[name].[contenthash].js',
 		path: path.resolve(__dirname, 'dist'),
 	},
+	plugins: [
+		new HTMLWebpackPlugin({
+			title: 'My title',
+			template: './index.html',
+		}),
+		new CleanWebpackPlugin(),
+	],
 	module: {
 		rules: [
 			{
@@ -21,7 +30,7 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.s[ac]ss$/i,
+				test: /\.scss$/i,
 				use: [
 					// Creates `style` nodes from JS strings
 					'style-loader',
@@ -31,10 +40,30 @@ module.exports = {
 					'sass-loader',
 				],
 			},
+			{
+				test: /\.(png|jpe?g|gif)$/i,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[path][name].[ext]?[hash]',
+						},
+					},
+				],
+			},
+			{
+				test: '/.(ttf|woff|woff2|eot)$',
+				use: {
+					loader: 'file-loader',
+					options: {
+						esModule: false,
+					},
+				},
+			},
 		],
 	},
 	devServer: {
 		contentBase: './dist',
-		port: '8091',
+		port: '8094',
 	},
 }
