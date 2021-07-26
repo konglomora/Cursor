@@ -10,5 +10,5 @@ thirdHomeWorkCardButton.addEventListener('click', () => {
 	console.log(`Max digit of ${number} is ${maxDigit}`)
 	document.querySelector(
 		'.first-card-result__wrapper'
-	).innerHTML = `<span class="result">Результат: ${maxDigit}</span>`
+	).innerHTML = `<span class="result">Result: ${maxDigit}</span>`
 })
