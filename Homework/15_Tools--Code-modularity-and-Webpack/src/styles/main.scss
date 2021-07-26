@@ -6,8 +6,8 @@
 @import './card/button.scss';
 @import './card/result.scss';
 @import './card/description.scss';
-
-$body-color: plum;
+@import './card/select.scss';
+$body-color: rgb(0, 0, 0);
 
 body {
 	font-family: 'Roboto', sans-serif;

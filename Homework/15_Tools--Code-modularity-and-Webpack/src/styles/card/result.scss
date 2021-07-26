@@ -1,6 +1,15 @@
-.first-card-result__wrapper {
+.result-wrapper {
 	margin: 20px;
+	text-align: center;
 	.result {
-    font-size: 1.3em;
+		font-size: 1.3em;
+	}
+}
+
+.third-card-result__wrapper {
+	max-width: 90%;
+	.result {
+		width: 90%;
+		word-wrap: break-word;
 	}
 }
