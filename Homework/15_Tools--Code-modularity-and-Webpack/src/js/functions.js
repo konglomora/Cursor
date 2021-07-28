@@ -16,6 +16,32 @@ import {
 	litva,
 	getMyTaxes,
 } from '../assets/homeworks/07_Closure--Keyword-This/script'
+import {
+	Student,
+	regularStudent,
+} from '../assets/homeworks/08_Prototypes--ES6-classes/script'
+
+import {
+	generateBlocks,
+	changeBlocksColor,
+	generateBlocksInterval,
+	getRandomColor,
+	blocksWrapper,
+	generateBlocksButton,
+	intervalBlocksColorChangeButton,
+} from '../assets/homeworks/09_DOM/script'
+
+import {
+	playSound,
+	removeTransition,
+	keys,
+} from '../assets/homeworks/10_Events/js/script'
+
+import {
+	getChinese,
+	lengthInput,
+	resultBlock,
+} from '../assets/homeworks/11_Async&Date&Promises/script'
 
 export const homeworkFunctionsObject = {
 	third: getMaxDigit,
@@ -35,5 +61,28 @@ export const homeworkFunctionsObject = {
 		latvia: latvia,
 		litva: litva,
 		getMyTaxes: getMyTaxes,
+	},
+	eighth: {
+		StudentClass: Student,
+		regularStudent: regularStudent,
+	},
+	ninth: {
+		blocksWrapper: blocksWrapper,
+		generateBlocksButton: generateBlocksButton,
+		intervalBlocksColorChangeButton: intervalBlocksColorChangeButton,
+		generateBlocks: generateBlocks,
+		changeBlocksColor: changeBlocksColor,
+		generateBlocksInterval: generateBlocksInterval,
+		getRandomColor: getRandomColor,
+	},
+	tenth: {
+		playSound: playSound,
+		removeTransition: removeTransition,
+		keys: keys,
+	},
+	eleven: {
+		getChinese: getChinese,
+		lengthInput: lengthInput,
+		resultBlock: resultBlock,
 	},
 }

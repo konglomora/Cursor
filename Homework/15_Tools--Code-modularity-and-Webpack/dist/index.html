@@ -5,20 +5,226 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>HW Webpack</title>
-	<script defer src="main.fd2ebdb2a27d63ee3bdc.js"></script></head>
+	<script defer src="main.09eecbe8b87bce16dc4b.js"></script></head>
 	<body>
 		<h1 class="page--title">Functions from previous homeworks</h1>
 		<div class="cards__block">
-			<div class="homework__card third__homework">
+			<div class="homework__card">
 				<h2>HW #3</h2>
 				<div class="card__description">Get max digit of number</div>
-				<input class="first-card--input" type="number" />
-				<button id="getMaxDigitButton">Max digit</button>
-				<div class="first-card-result__wrapper"></div>
+				<input
+					class="first-card--input"
+					type="number"
+					placeholder="Input number"
+				/>
+				<button id="getMaxDigitButton">Get max digit</button>
+				<div class="result-wrapper first-card-result__wrapper"></div>
 			</div>
+
 			<div class="homework__card">
 				<h2>HW #4</h2>
-				<button id="getStudentpairsButton">Student pairs</button>
+				<div class="card__description second-description">
+					Get pairs by sex and theme of students arrray and themes array: <br />
+					['Олександр', 'Ігор', 'Олена', 'Іра', 'Олексій', 'Світлана'] <br />
+					[ 'Диференційне рівняння', 'Теорія автоматів', 'Алгоритми і структури
+					даних', ]
+				</div>
+				<button id="getStudentpairsButton">Get pairs</button>
+				<div class="result-wrapper second-card-result__wrapper"></div>
+			</div>
+
+			<div class="homework__card">
+				<h2>HW #5</h2>
+				<div class="card__description">Get random array of numbers</div>
+				<input
+					class="third-card-array-length--input"
+					type="number"
+					placeholder="Input length of array"
+				/>
+				<input
+					class="third-card-min--input"
+					type="number"
+					placeholder="Input min number"
+				/>
+				<input
+					class="third-card-max--input"
+					type="number"
+					placeholder="Input max number"
+				/>
+				<button id="getRandomArrayButton">Get random array</button>
+				<div class="result-wrapper third-card-result__wrapper"></div>
+			</div>
+
+			<div class="homework__card">
+				<h2>HW #6</h2>
+				<div class="card__description">
+					Get subjects of student. <br />
+					Students count: 3.
+				</div>
+				<input
+					class="fourth-card--input"
+					type="number"
+					placeholder="Input student number"
+				/>
+				<button id="getStudentSubjectsButton">Get subjects</button>
+				<div class="result-wrapper fourth-card-result__wrapper"></div>
+			</div>
+
+			<div class="homework__card">
+				<h2>HW #7</h2>
+				<div class="card__description">Get taxes</div>
+				<select name="country-select" id="fifth-card-country-select">
+					<option value="ukraine">Ukraine</option>
+					<option value="latvia">Latvia</option>
+					<option value="litva">Litva</option>
+				</select>
+				<input
+					class="fifth-card--input"
+					type="number"
+					placeholder="Input your salary"
+				/>
+				<button id="getTaxesButton">Get taxes</button>
+				<div class="result-wrapper fifth-card-result__wrapper"></div>
+			</div>
+
+			<div class="homework__card">
+				<h2>HW #8</h2>
+				<div class="card__description">Get info about student</div>
+				<button id="getStudentinfoButton">Get student info</button>
+				<div class="result-wrapper sixth-card-result__wrapper"></div>
+			</div>
+
+			<div class="homework__card">
+				<h2>HW #9</h2>
+				<div class="card__description">Get 25 colored blocks</div>
+				<button id="generateBlocksButton">Generate blocks</button>
+
+				<div class="result-wrapper seventh-card-result__wrapper">
+					<div class="blocks__wrapper"></div>
+				</div>
+				<button class="hidden" id="colorizeBlocksButton">
+					Run interval color change
+				</button>
+			</div>
+
+			<div class="homework__card">
+				<h2>HW #10</h2>
+				<div class="card__description">
+					Play sounds by tapping keyboard keys
+				</div>
+
+				<div class="result-wrapper eighth-card-result__wrapper">
+					<div class="keys">
+						<div data-key="81" class="key">
+							<kbd>Q</kbd>
+							<span class="sound">Anxiety</span>
+						</div>
+						<div data-key="87" class="key">
+							<kbd>W</kbd>
+							<span class="sound">Blaster</span>
+						</div>
+						<div data-key="69" class="key">
+							<kbd>E</kbd>
+							<span class="sound">Chameleon-tongue</span>
+						</div>
+						<div data-key="82" class="key">
+							<kbd>R</kbd>
+							<span class="sound">Drums</span>
+						</div>
+						<div data-key="84" class="key">
+							<kbd>T</kbd>
+							<span class="sound">Jump</span>
+						</div>
+						<div data-key="89" class="key">
+							<kbd>Y</kbd>
+							<span class="sound">New floor</span>
+						</div>
+						<div data-key="65" class="key">
+							<kbd>A</kbd>
+							<span class="sound">Shuriken thorw</span>
+						</div>
+						<div data-key="83" class="key">
+							<kbd>S</kbd>
+							<span class="sound">Small drums</span>
+						</div>
+						<div data-key="68" class="key">
+							<kbd>D</kbd>
+							<span class="sound">Space mosquito</span>
+						</div>
+						<div data-key="70" class="key">
+							<kbd>F</kbd>
+							<span class="sound">Successful download</span>
+						</div>
+						<div data-key="71" class="key">
+							<kbd>G</kbd>
+							<span class="sound">Takeoff</span>
+						</div>
+						<div data-key="72" class="key">
+							<kbd>H</kbd>
+							<span class="sound">Teleport</span>
+						</div>
+					</div>
+
+					<audio
+						class="anxiety"
+						data-key="81"
+						src="./assets/homeworks/10_Events/assets/sounds/anxiety.wav"
+					></audio>
+					<audio
+						data-key="87"
+						src="./assets/homeworks/10_Events/assets/sounds/blaster.wav"
+					></audio>
+					<audio
+						data-key="69"
+						src="./assets/homeworks/10_Events/assets/sounds/chameleon-tongue.wav"
+					></audio>
+					<audio
+						data-key="82"
+						src="./assets/homeworks/10_Events/assets/sounds/drums.wav"
+					></audio>
+					<audio
+						data-key="84"
+						src="./assets/homeworks/10_Events/assets/sounds/jump.wav"
+					></audio>
+					<audio
+						data-key="89"
+						src="./assets/homeworks/10_Events/assets/sounds/new-floor.wav"
+					></audio>
+					<audio
+						data-key="65"
+						src="./assets/homeworks/10_Events/assets/sounds/shuriken-throw.wav"
+					></audio>
+					<audio
+						data-key="83"
+						src="./assets/homeworks/10_Events/assets/sounds/small-drums.wav"
+					></audio>
+					<audio
+						data-key="68"
+						src="./assets/homeworks/10_Events/assets/sounds/space-mosquito.wav"
+					></audio>
+					<audio
+						data-key="70"
+						src="./assets/homeworks/10_Events/assets/sounds/successful-download.mov"
+					></audio>
+					<audio
+						data-key="71"
+						src="./assets/homeworks/10_Events/assets/sounds/takeoff.wav"
+					></audio>
+					<audio
+						data-key="72"
+						src="./assets/homeworks/10_Events/assets/sounds/teleport.wav"
+					></audio>
+				</div>
+			</div>
+
+			<div class="homework__card">
+				<h2>HW #11</h2>
+					<div class="card__description">Generate string of chinese characters</div>
+				<label for="length__input">Count of chinese chars:</label>
+        <input id="length__input" type="number"/>
+				<div class="result-wrapper ninth-card-result__wrapper result"></div>
+      </div>
+      
 			</div>
 		</div>
 	</body>

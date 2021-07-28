@@ -1,3 +1,4 @@
+
 @import '~normalize.css';
 @import 'font.scss';
 @import './card/wrapper.scss';
@@ -7,6 +8,9 @@
 @import './card/result.scss';
 @import './card/description.scss';
 @import './card/select.scss';
+@import '../assets/homeworks/09_DOM/style.css';
+@import '../assets/homeworks/10_Events/style.scss';
+
 $body-color: rgb(0, 0, 0);
 
 body {

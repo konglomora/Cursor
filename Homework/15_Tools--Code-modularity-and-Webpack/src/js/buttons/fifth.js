@@ -2,6 +2,7 @@ import { homeworkFunctionsObject as functions } from '../functions'
 
 const seventhHomeworkButton = document.querySelector('#getTaxesButton')
 
+
 seventhHomeworkButton.addEventListener('click', () => {
 	const selectedCountry = document.querySelector(
 		'#fifth-card-country-select'

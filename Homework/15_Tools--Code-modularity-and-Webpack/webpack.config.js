@@ -12,7 +12,7 @@ module.exports = {
 	},
 	plugins: [
 		new HTMLWebpackPlugin({
-			title: 'My title',
+			title: 'HW',
 			template: './index.html',
 		}),
 		new CleanWebpackPlugin(),
@@ -58,6 +58,13 @@ module.exports = {
 					options: {
 						esModule: false,
 					},
+				},
+			},
+			{
+				test: /\.(wav|mp3|mov)$/,
+				loader: 'file-loader',
+				options: {
+					name: '[path][name].[ext]?[hash]',
 				},
 			},
 		],

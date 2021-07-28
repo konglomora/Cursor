@@ -1,14 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
 
-body {
-  background-color: rgb(230, 194, 217);
-  background-image: url('../img/mountains.png');
-  background-repeat: no-repeat;
-}
-
 .keys {
   width: 100%;
-  height: 300px;
+  // height: 100%;
   position: absolute;
   left: 0;
   right: 0;
@@ -24,8 +18,9 @@ body {
   color: #8c3b8c;
 
   .key {
-    width: 15%;
-    height: 20%;
+    margin-bottom: 10px;
+    width: 25%;
+    height: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +28,7 @@ body {
     text-align: center;
     border: 3px dashed rgb(85, 116, 180);
     border-radius: 20px;
-    padding: 1px;
+    padding: 3px;
     transition: all 0.09s;
     &.down {
       transform: scale(2.1);
@@ -51,8 +46,10 @@ body {
 
 @media screen and (max-width: 992px) {
   .keys {
+    min-height: 300px;
     .key {
       width: 25%;
+      
     }
   }
 }
