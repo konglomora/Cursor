@@ -43,6 +43,16 @@ import {
 	resultBlock,
 } from '../assets/homeworks/11_Async&Date&Promises/script'
 
+import {
+	getPlanetsButton,
+	getPreviousPlanetsPageButton,
+	getNextPlanetsPageButton,
+	planetsBlock,
+	planetsURL,
+} from '../assets/homeworks/12_Work-with-server/js/planets'
+
+import { createIdGenerator } from '../assets/homeworks/13_Symbols--Generators--Iterators/script'
+
 export const homeworkFunctionsObject = {
 	third: getMaxDigit,
 	fourth: {
@@ -80,9 +90,19 @@ export const homeworkFunctionsObject = {
 		removeTransition: removeTransition,
 		keys: keys,
 	},
-	eleven: {
+	eleventh: {
 		getChinese: getChinese,
 		lengthInput: lengthInput,
 		resultBlock: resultBlock,
+	},
+	twelveth: {
+		getPlanetsButton: getPlanetsButton,
+		getPreviousPlanetsPageButton: getPreviousPlanetsPageButton,
+		getNextPlanetsPageButton: getNextPlanetsPageButton,
+		planetsBlock: planetsBlock,
+		planetsURL: planetsURL,
+	},
+	thirteenth: {
+		createIdGenerator: createIdGenerator,
 	},
 }

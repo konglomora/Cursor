@@ -9,5 +9,8 @@ import { sixthButton } from './buttons/sixth'
 import { seventhFirstButton } from './buttons/seventh/seventh.first'
 import { seventhSecondButton } from './buttons/seventh/seventh.second'
 import { ninthButton } from './buttons/ninth'
+import { tenthButton } from './buttons/tenth'
+import { eleventhButton } from './buttons/eleventh'
+
 
 document.body.style.backgroundImage = `url("${background}")`

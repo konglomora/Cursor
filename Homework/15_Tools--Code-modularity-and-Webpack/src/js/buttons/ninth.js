@@ -1,8 +1,8 @@
 import { homeworkFunctionsObject as functions } from '../functions'
 import regeneratorRuntime from 'regenerator-runtime'
 
-functions.eleven.lengthInput.onchange = event => {
-	functions.eleven.getChinese(event.target.value).then(string => {
-		functions.eleven.resultBlock.textContent = string
+functions.eleventh.lengthInput.onchange = event => {
+	functions.eleventh.getChinese(event.target.value).then(string => {
+		functions.eleventh.resultBlock.textContent = string
 	})
 }

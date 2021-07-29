@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/dist/style.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <section class="character-info__section">
-      <select name="Episodes" id="episodes-select">
-        <option value="1">Star Wars: A New Hope</option>
-        <option value="2" selected>Star Wars: The Empire Strikes Back</option>
-        <option value="3">Star Wars: Return of the Jedi</option>
-        <option value="4">Star Wars: The Phantom Menace</option>
-        <option value="5">Star Wars: Attack of the Clones</option>
-        <option value="6">Star Wars: Revenge of the Sith</option>
-      </select>
-      <button id="getCharacters">Get characters from episode</button>
-    </section>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./styles/dist/style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<section class="character-info__section">
+			<select name="Episodes" id="episodes-select">
+				<option value="1">Star Wars: A New Hope</option>
+				<option value="2" selected>Star Wars: The Empire Strikes Back</option>
+				<option value="3">Star Wars: Return of the Jedi</option>
+				<option value="4">Star Wars: The Phantom Menace</option>
+				<option value="5">Star Wars: Attack of the Clones</option>
+				<option value="6">Star Wars: Revenge of the Sith</option>
+			</select>
+			<button id="getCharacters">Get characters from episode</button>
+		</section>
 
-    <div class="characters"></div>
+		<div class="characters"></div>
 
-    <section class="planets-info__section">
-      <button id="getPlanets--button">Get planets</button>
-      <div class="nav-buttons__block">
-        <button id="prev-planets--button">Back</button>
-        <button id="next-planets--button">Next</button>
-      </div>
-    </section>
+		<section class="planets-info__section">
+			<button id="getPlanets--button">Get planets</button>
+			<div class="nav-buttons__block">
+				<button id="prev-planets--button">Back</button>
+				<button id="next-planets--button">Next</button>
+			</div>
+		</section>
 
-    <div class="planets"></div>
+		<div class="planets"></div>
 
-    <script src="./js/characters.js"></script>
-    <script src="./js/planets.js"></script>
-  </body>
+		<script src="./js/characters.js"></script>
+		<script src="./js/planets.js"></script>
+	</body>
 </html>

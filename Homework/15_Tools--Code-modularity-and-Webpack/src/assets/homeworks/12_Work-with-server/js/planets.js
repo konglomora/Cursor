@@ -15,14 +15,12 @@ async function getJsonAfterFetch(url) {
   return dataObject;
 }
 
-async function getPlanets() {
+export async function getPlanets() {
   const planetsObject = await getJsonAfterFetch(planetsURL);
   renderPlanetsPage(planetsObject);
 }
 
-getPlanetsButton.addEventListener('click', () => {
-  getPlanets();
-});
+
 
 function renderPlanetsPage(planetsObject) {
   let planetsItem = '';
@@ -73,6 +71,10 @@ async function getNextPlanetsPage(pageNumber) {
   renderPlanetsPage(planetsObject);
   planetsPageNumber++;
 }
+
+getPlanetsButton.addEventListener('click', () => {
+	getPlanets()
+})
 
 getPreviousPlanetsPageButton.addEventListener('click', () => {
   getPreviousPlanetsPage(planetsPageNumber);

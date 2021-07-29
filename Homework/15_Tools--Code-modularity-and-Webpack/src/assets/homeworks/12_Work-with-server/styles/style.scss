@@ -1,21 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-body {
-  background-image: url('https://logos-download.com/wp-content/uploads/2016/09/Star_Wars_logo_black-700x700.png');
-  background-size: 25%;
-  background-repeat: no-repeat;
-  background-position: top;
-  background-color: black;
-  color: white;
-  font-family: 'Noto Serif', serif;
-}
-
 .hidden {
   display: none;
 }
 
 .character-info__section {
-  margin: 25% auto 10px;
+  margin: auto;
   display: flex;
   width: 70%;
   padding: 10px;
@@ -85,41 +75,38 @@ body {
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 30%;
-  #getPlanets--button {
-    background-color: rgb(203, 133, 47);
-    padding: 10px;
-    color: black;
-    font-size: 20px;
-    border: 5px solid black;
-    border-radius: 10px;
-    transition: 0.5s;
-    &:hover {
-      cursor: pointer;
-      border: 5px solid white;
-      background-color: rgb(194, 118, 26);
-    }
-  }
+  // #getPlanets--button {
+  //   color: white;
+  //   padding: 10px;
+  //   font-size: 20px;
+  //   border: 5px solid black;
+  //   border-radius: 10px;
+  //   transition: 0.5s;
+  //   &:hover {
+  //     cursor: pointer;
+  //     border: 5px solid white;
+  //   }
+  // }
   .nav-buttons__block {
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin-top: 10px;
-    #prev-planets--button,
-    #next-planets--button {
-      background-color: rgb(90, 67, 223);
-      padding: 10px;
-      color: white;
-      font-size: 20px;
-      border: 5px solid black;
-      border-radius: 10px;
-      transition: 0.5s;
-      &:hover {
-        cursor: pointer;
-        border: 5px solid white;
-        background-color: rgb(53, 25, 211);
-      }
-    }
+    // #prev-planets--button,
+    // #next-planets--button {
+    //   background-color: rgb(90, 67, 223);
+    //   padding: 10px;
+    //   color: white;
+    //   font-size: 20px;
+    //   border: 5px solid black;
+    //   border-radius: 10px;
+    //   transition: 0.5s;
+    //   &:hover {
+    //     cursor: pointer;
+    //     border: 5px solid white;
+    //     background-color: rgb(53, 25, 211);
+    //   }
+    // }
   }
 }
 
